@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-top: 2px solid var(--color-gray-400);
+
+  &-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

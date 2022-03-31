@@ -1,9 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
+@import "./Home.module.scss";
+@import "./Header.module.scss";
+@import "./Footer.module.scss";
+
 :root {
   --color-hue: 200;
 
   --color-black: hsl(0, 0%, 0%);
+  --color-white: hsl(0, 0%, 100%);
 
   --color-gray-900: hsl(0, 0%, 9%);
   --color-gray-800: hsl(0, 0%, 11%);
@@ -24,6 +29,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
+  color: var(--color-white);
 }
 
 a {
@@ -33,4 +39,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
 }
