@@ -1,8 +1,9 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-top: 2px solid var(--color-gray-400);
+  padding: 1rem 6rem;
+  border-top: 2px solid var(--color-gray-500);
+  position: relative;
 
   &-links {
     display: flex;
@@ -10,8 +11,37 @@
   }
 
   &-link {
+    outline: none;
+
     &:hover {
+      color: var(--color-primary-400);
       text-decoration: underline;
+    }
+  }
+
+  .cross {
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: var(--color-gray-500);
+    top: -0.45rem;
+    transform: rotate(-30deg);
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 12px;
+      background-color: var(--color-gray-500);
+      transform: rotate(60deg);
+    }
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
     }
   }
 }

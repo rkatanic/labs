@@ -1,11 +1,35 @@
-.content {
+.main {
   max-width: 66rem;
-  padding: 0 2rem;
+  padding: 2rem;
   margin: auto;
+  position: relative;
+
+
+  &:before {
+    z-index: -1;
+    top: 0;
+    left: 0;
+    position: fixed;
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    background-image:
+      radial-gradient(circle at 100% 150%, var(--color-gray-900) 24%, var(--color-gray-800) 24%, var(--color-gray-800) 28%, var(--color-gray-900) 28%, var(--color-gray-900) 36%, var(--color-gray-800) 36%, var(--color-gray-800) 40%, transparent 40%, transparent),
+      radial-gradient(circle at 0 150%, var(--color-gray-900) 24%, var(--color-gray-800) 24%, var(--color-gray-800) 28%, var(--color-gray-900) 28%, var(--color-gray-900) 36%, var(--color-gray-800) 36%, var(--color-gray-800) 40%, transparent 40%, transparent),
+      radial-gradient(circle at 50% 100%, var(--color-gray-800) 10%, var(--color-gray-900) 10%, var(--color-gray-900) 23%, var(--color-gray-800) 23%, var(--color-gray-800) 30%, var(--color-gray-900) 30%, var(--color-gray-900) 43%, var(--color-gray-800) 43%, var(--color-gray-800) 50%, var(--color-gray-900) 50%, var(--color-gray-900) 63%, var(--color-gray-800) 63%, var(--color-gray-800) 71%, transparent 71%, transparent),
+      radial-gradient(circle at 100% 50%, var(--color-gray-800) 5%, var(--color-gray-900) 5%, var(--color-gray-900) 15%, var(--color-gray-800) 15%, var(--color-gray-800) 20%, var(--color-gray-900) 20%, var(--color-gray-900) 29%, var(--color-gray-800) 29%, var(--color-gray-800) 34%, var(--color-gray-900) 34%, var(--color-gray-900) 44%, var(--color-gray-800) 44%, var(--color-gray-800) 49%, transparent 49%, transparent),
+      radial-gradient(circle at 0 50%, var(--color-gray-800) 5%, var(--color-gray-900) 5%, var(--color-gray-900) 15%, var(--color-gray-800) 15%, var(--color-gray-800) 20%, var(--color-gray-900) 20%, var(--color-gray-900) 29%, var(--color-gray-800) 29%, var(--color-gray-800) 34%, var(--color-gray-900) 34%, var(--color-gray-900) 44%, var(--color-gray-800) 44%, var(--color-gray-900) 49%, transparent 49%, transparent);
+    background-size: 40px 20px;
+  }
+}
+
+.content {
+  margin: 6rem 0;
+
 }
 
 .grid {
-  position: absolute;
+  position: fixed;
   content: "";
   top: 0;
   left: 0;
@@ -22,17 +46,17 @@
     linear-gradient(var(--color-gray-700) 0 0) calc(8*100%/9);
   background-size: 1px 100%;
   background-repeat: no-repeat;
-  background-color: var(--color-gray-900);
-  z-index: -1;
 }
 
 .home {
   &-headline {
     text-align: center;
-    margin: 6rem 0;
+    margin: 8rem 0 6rem;
 
     &-title {
       font-size: 6rem;
+      font-family: var(--font-main);
+      letter-spacing: 3px;
     }
 
     &-desc {
@@ -40,5 +64,162 @@
       font-size: 1.5rem;
       max-width: 34rem;
     }
+  }
+}
+
+.date-time {
+  margin: 6rem 0 12rem;
+  text-align: center;
+
+  .time {
+    margin: 0.25rem 0;
+  }
+
+  .date {
+    font-weight: 400;
+  }
+
+  .page-load {
+    font-weight: 400;
+  }
+}
+
+.line {
+  top: 12rem;
+  position: absolute;
+  height: 72%;
+  width: 2px;
+  background-color: var(--color-gray-500);
+
+  .cross {
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: var(--color-gray-500);
+    transform: rotate(60deg);
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 12px;
+      background-color: var(--color-gray-500);
+      transform: rotate(60deg);
+    }
+
+    &-top {
+      top: -8px;
+    }
+
+    &-bottom {
+      bottom: -8px;
+    }
+  }
+
+  .scroll-text {
+    transform: rotate(-90deg);
+    position: absolute;
+    white-space: nowrap;
+    padding: 0 0.5rem;
+    background-color: var(--color-gray-900);
+
+    &-top {
+      left: -2.25rem;
+      top: 6rem;
+    }
+
+    &-bottom {
+      left: -2.125rem;
+      bottom: 6rem;
+    }
+  }
+
+  &-left {
+    left: 8rem;
+  }
+
+  &-right {
+    right: 8rem;
+  }
+}
+
+.button-container {
+  right: 1.5rem;
+  top: 6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sphere {
+  margin: 0 auto 1.5rem;
+  top: 50%;
+  transform-style: preserve-3d;
+  transform: rotateX(-1deg) rotateY(-1deg) rotateZ(-1deg);
+  height: 4rem;
+  width: 4rem;
+  animation: rotate 15s linear infinite;
+  position: absolute;
+  top: 12rem;
+  left: 59%;
+  z-index: -1;
+}
+
+.sphere div {
+  height: 4rem;
+  width: 4rem;
+  background: transparent;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.inner {
+  background: none;
+  border: 1px dashed var(--color-gray-300);
+  border-radius: 50%;
+}
+
+.top {
+  transform: rotateX(45deg) translateZ(calc(6.5rem * 2));
+}
+
+.bottom {
+  transform: rotateX(45deg) translateZ(-calc(6.5rem * 1.2));
+}
+
+.sphere-one {
+  transform: rotateX(0) translateZ(0);
+}
+
+.sphere-two {
+  transform: rotateY(-90deg) translateZ(0);
+}
+
+.sphere-three {
+  transform: rotateX(90deg) translateY(0);
+}
+
+.sphere-three {
+  transform: rotateY(45deg) rotateX(45deg) translateY(0);
+}
+
+.sphere-five {
+  transform: rotateY(-45deg) rotateX(-45deg) translateY(0);
+}
+
+.sphere-six {
+  transform: rotateY(-45deg) rotateX(45deg) translateY(0);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(-1deg) rotateY(-1deg) rotateZ(-1deg);
+  }
+
+  50% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+  }
+
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
   }
 }

@@ -1,8 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;700&display=swap");
 
+@import "./IconButton.module.scss";
 @import "./Home.module.scss";
 @import "./Header.module.scss";
 @import "./Footer.module.scss";
+@import "./ProjectCard.module.scss";
+@import "./ProjectsSlider.module.scss";
 
 :root {
   --color-hue: 200;
@@ -10,25 +13,35 @@
   --color-black: hsl(0, 0%, 0%);
   --color-white: hsl(0, 0%, 100%);
 
-  --color-gray-900: hsl(0, 0%, 9%);
-  --color-gray-800: hsl(0, 0%, 11%);
-  --color-gray-700: hsl(0, 0%, 12%);
-  --color-gray-600: hsl(0, 0%, 16%);
-  --color-gray-500: hsl(0, 0%, 20%);
-  --color-gray-400: hsl(0, 0%, 25%);
-  --color-gray-300: hsl(0, 0%, 30%);
-  --color-gray-200: hsl(0, 0%, 50%);
+  --color-gray-900: hsl(0, 0%, 8%);
+  --color-gray-800: hsl(0, 0%, 10%);
+  --color-gray-700: hsl(0, 0%, 13%);
+  --color-gray-600: hsl(0, 0%, 15%);
+  --color-gray-500: hsl(0, 0%, 17%);
+  --color-gray-400: hsl(0, 0%, 20%);
+  --color-gray-300: hsl(0, 0%, 25%);
+  --color-gray-200: hsl(0, 0%, 30%);
+  --color-gray-100: hsl(0, 0%, 50%);
 
-  --color-primary-500: hsl(var(--color-hue), 47%, 52%);
-  --color-primary-400: hsl(var(--color-hue), 47%, 62%);
-  --color-primary-300: hsl(var(--color-hue), 47%, 72%);
+  --color-primary-500: hsl(var(--color-hue), 65%, 52%);
+  --color-primary-400: hsl(var(--color-hue), 65%, 62%);
+  --color-primary-300: hsl(var(--color-hue), 65%, 72%);
+
+  --font-main: Eugusto;
+  --font-alt: "Urbanist", sans-serif;
+}
+
+
+@font-face {
+  font-family: Eugusto;
+  src: url("../assets/fonts/Eugusto.otf") format("opentype");
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-alt);
   color: var(--color-white);
 }
 
@@ -45,4 +58,27 @@ h1,
 h2,
 h3 {
   margin: 0;
+}
+
+
+button {
+  transition: 0.25s;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--color-gray-700);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-500);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
 }

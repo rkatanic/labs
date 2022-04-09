@@ -1,6 +1,33 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 2px solid var(--color-gray-400);
+  padding: 1rem 6rem;
+  border-bottom: 2px solid var(--color-gray-500);
+  position: relative;
+
+  .cross {
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: var(--color-gray-500);
+    top: 2.85rem;
+    transform: rotate(-30deg);
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 12px;
+      background-color: var(--color-gray-500);
+      transform: rotate(60deg);
+    }
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
+    }
+  }
 }

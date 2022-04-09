@@ -1,0 +1,63 @@
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: 0.1s linear;
+  position: relative;
+  cursor: pointer;
+  margin-left: -0.25rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  box-shadow: 0 3px 6px var(--color-black);
+  border: 4px double var(--color-gray-200);
+  background-color: var(--color-white);
+
+  &:hover .icon-button-tooltip {
+    display: inline;
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    transition: 0.125s linear;
+  }
+
+  &-tooltip {
+    position: absolute;
+    left: 4.25rem;
+    padding: 0.5rem 1rem;
+    color: var(--color-white);
+    background-color: var(--color-gray-800);
+    border-radius: 6px;
+    border: 2px solid var(--color-gray-500);
+    white-space: nowrap;
+    display: none;
+
+    &::before {
+      left: -10px;
+      top: 8px;
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 16px;
+      background-color: var(--color-gray-500);
+      clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    }
+
+    &::after {
+      left: -7px;
+      top: 10px;
+      position: absolute;
+      content: "";
+      width: 8px;
+      height: 12px;
+      background-color: var(--color-gray-800);
+      clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    }
+  }
+
+}

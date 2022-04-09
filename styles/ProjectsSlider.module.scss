@@ -1,0 +1,10 @@
+.projects-slider {
+  margin: 6rem 0;
+  overflow: hidden;
+  max-width: 62rem;
+
+  &-content {
+    display: flex;
+    gap: 1rem;
+  }
+}

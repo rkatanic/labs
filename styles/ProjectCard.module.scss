@@ -1,0 +1,50 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  min-width: 20rem;
+  height: 26rem;
+  background-color: var(--color-gray-900);
+  border: 2px solid var(--color-gray-500);
+  border-radius: 4px;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle at 100% 150%, var(--color-gray-900) 24%, var(--color-gray-800) 24%, var(--color-gray-800) 28%, var(--color-gray-900) 28%, var(--color-gray-900) 36%, var(--color-gray-800) 36%, var(--color-gray-800) 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0 150%, var(--color-gray-900) 24%, var(--color-gray-800) 24%, var(--color-gray-800) 28%, var(--color-gray-900) 28%, var(--color-gray-900) 36%, var(--color-gray-800) 36%, var(--color-gray-800) 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50% 100%, var(--color-gray-800) 10%, var(--color-gray-900) 10%, var(--color-gray-900) 23%, var(--color-gray-800) 23%, var(--color-gray-800) 30%, var(--color-gray-900) 30%, var(--color-gray-900) 43%, var(--color-gray-800) 43%, var(--color-gray-800) 50%, var(--color-gray-900) 50%, var(--color-gray-900) 63%, var(--color-gray-800) 63%, var(--color-gray-800) 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, var(--color-gray-800) 5%, var(--color-gray-900) 5%, var(--color-gray-900) 15%, var(--color-gray-800) 15%, var(--color-gray-800) 20%, var(--color-gray-900) 20%, var(--color-gray-900) 29%, var(--color-gray-800) 29%, var(--color-gray-800) 34%, var(--color-gray-900) 34%, var(--color-gray-900) 44%, var(--color-gray-800) 44%, var(--color-gray-800) 49%, transparent 49%, transparent),
+    radial-gradient(circle at 0 50%, var(--color-gray-800) 5%, var(--color-gray-900) 5%, var(--color-gray-900) 15%, var(--color-gray-800) 15%, var(--color-gray-800) 20%, var(--color-gray-900) 20%, var(--color-gray-900) 29%, var(--color-gray-800) 29%, var(--color-gray-800) 34%, var(--color-gray-900) 34%, var(--color-gray-900) 44%, var(--color-gray-800) 44%, var(--color-gray-900) 49%, transparent 49%, transparent);
+  background-size: 40px 20px;
+
+  hr {
+    border: 0;
+    border-top: 2px solid var(--color-gray-500);
+    margin: 1rem 0;
+  }
+
+  &-number {
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--color-gray-300);
+  }
+
+  &-title {
+    letter-spacing: 1.5px;
+    font-size: 2.75rem;
+    margin: 1.5rem 0;
+    font-family: var(--font-main);
+    letter-spacing: 3px;
+  }
+
+  &-date {
+    letter-spacing: 2px;
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+  }
+
+  &-description {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
