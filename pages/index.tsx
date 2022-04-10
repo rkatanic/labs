@@ -4,10 +4,17 @@ import ProjectsSlider from "../components/ProjectsSlider";
 import ArrowRightIcon from "../assets/icons/arrow-right.svg";
 import SendIcon from "../assets/icons/send.svg";
 import DateTime from "../components/DateTime";
+import { getAllProjects } from "../lib/api";
+import { Project } from "../types/Project";
 
-const Home = () => {
+type Props = {
+  projects: Project[];
+};
+
+const Home = ({ projects }: Props): JSX.Element => {
   const button = useRef<any>();
   const sliderRef = useRef<any>();
+  console.log(projects);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -52,7 +59,7 @@ const Home = () => {
           experiments.
         </p>
       </div>
-      <ProjectsSlider sliderRef={sliderRef} />
+      <ProjectsSlider projects={projects} sliderRef={sliderRef} />
 
       <DateTime />
     </div>
@@ -60,3 +67,17 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getStaticProps = async () => {
+  const projects = getAllProjects([
+    "title",
+    "slug",
+    "excerpt",
+    "creationDate",
+    "number",
+  ]);
+
+  return {
+    props: { projects },
+  };
+};

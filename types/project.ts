@@ -1,8 +1,9 @@
 export interface Project {
-  id: string;
   title: string;
-  description: string;
-  content: string;
+  slug: string;
+  excerpt: string;
   creationDate: string;
+  modificationDate: string;
+  content: string;
   number: string;
 }

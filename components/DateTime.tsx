@@ -1,16 +1,5 @@
 import { useEffect, useState } from "react";
-
-const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "short",
-  day: "2-digit",
-});
-
-const TIME_FORMAT = new Intl.DateTimeFormat("en-US", {
-  hour: "2-digit",
-  minute: "2-digit",
-  second: "2-digit",
-});
+import { DATE_FORMAT, TIME_FORMAT } from "../util/dateTimeUtils";
 
 const DateTime = (): JSX.Element => {
   const [{ date, time }, setDateTime] = useState({

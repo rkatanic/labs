@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { PROJECTS } from "../projects";
-import ProjectCard from "./ProjectCard";
 import { Project } from "../types/project";
+import ProjectCard from "./ProjectCard";
 
 interface Props {
+  projects: Project[];
   sliderRef: any;
 }
 
-const ProjectsSlider = ({ sliderRef }: Props): JSX.Element => {
-  const [slides, setSlides] = useState(PROJECTS);
+const ProjectsSlider = ({ sliderRef, projects }: Props): JSX.Element => {
+  const [slides, setSlides] = useState(projects);
 
   const handleNextSlide = () => {
     sliderRef.current.style.transition = `transform 0s`;
@@ -21,14 +21,14 @@ const ProjectsSlider = ({ sliderRef }: Props): JSX.Element => {
     <div onTransitionEnd={handleNextSlide} className="projects-slider">
       <div ref={sliderRef} className="projects-slider-content">
         {slides.map(
-          ({ id, number, title, creationDate, description }: Project) => (
+          ({ title, slug, excerpt, creationDate, number }: Project) => (
             <ProjectCard
-              key={id}
-              id={id}
+              key={slug}
+              slug={slug}
               number={number}
               title={title}
-              date={creationDate}
-              description={description}
+              creationDate={creationDate}
+              excerpt={excerpt}
             />
           )
         )}
