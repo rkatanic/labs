@@ -1,10 +1,14 @@
-import "../styles/Header.module.scss";
+import MonIcon from "../assets/icons/mon.svg";
 
 const Footer = (): JSX.Element => {
   return (
     <header className="footer">
-      <div className="cross cross-left"></div>
-      <div className="cross cross-right"></div>
+      <div className="footer-mon-left">
+        <MonIcon />
+      </div>
+      <div className="footer-mon-right">
+        <MonIcon />
+      </div>
       <span>© 2022 Radivoje Katanic</span>
       <div className="footer-links">
         <a className="footer-link" href="">

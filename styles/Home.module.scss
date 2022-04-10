@@ -1,9 +1,9 @@
 .main {
   max-width: 66rem;
-  padding: 2rem;
+  padding: 3rem 2rem;
   margin: auto;
   position: relative;
-
+  height: 100%;
 
   &:before {
     z-index: -1;
@@ -21,11 +21,6 @@
       radial-gradient(circle at 0 50%, var(--color-gray-800) 5%, var(--color-gray-900) 5%, var(--color-gray-900) 15%, var(--color-gray-800) 15%, var(--color-gray-800) 20%, var(--color-gray-900) 20%, var(--color-gray-900) 29%, var(--color-gray-800) 29%, var(--color-gray-800) 34%, var(--color-gray-900) 34%, var(--color-gray-900) 44%, var(--color-gray-800) 44%, var(--color-gray-900) 49%, transparent 49%, transparent);
     background-size: 40px 20px;
   }
-}
-
-.content {
-  margin: 6rem 0;
-
 }
 
 .grid {
@@ -49,9 +44,15 @@
 }
 
 .home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
   &-headline {
     text-align: center;
-    margin: 8rem 0 6rem;
+    margin: 6rem 0;
 
     &-title {
       font-size: 6rem;
@@ -68,8 +69,8 @@
 }
 
 .date-time {
-  margin: 6rem 0 12rem;
   text-align: center;
+  margin: 6rem 0;
 
   .time {
     margin: 0.25rem 0;
@@ -84,36 +85,28 @@
   }
 }
 
+.content {
+  display: flex;
+  margin: 6rem 0;
+  position: relative;
+}
+
 .line {
-  top: 12rem;
   position: absolute;
-  height: 72%;
+  height: 100%;
   width: 2px;
   background-color: var(--color-gray-500);
 
-  .cross {
+  &-mon-top {
+    left: -0.45rem;
+    top: -0.25rem;
     position: absolute;
-    width: 2px;
-    height: 12px;
-    background-color: var(--color-gray-500);
-    transform: rotate(60deg);
+  }
 
-    &::before {
-      position: absolute;
-      content: "";
-      width: 2px;
-      height: 12px;
-      background-color: var(--color-gray-500);
-      transform: rotate(60deg);
-    }
-
-    &-top {
-      top: -8px;
-    }
-
-    &-bottom {
-      bottom: -8px;
-    }
+  &-mon-bottom {
+    left: -0.45rem;
+    bottom: -0.25rem;
+    position: absolute;
   }
 
   .scroll-text {
@@ -135,19 +128,19 @@
   }
 
   &-left {
-    left: 8rem;
+    left: 6rem;
   }
 
   &-right {
-    right: 8rem;
+    right: 6rem;
   }
 }
 
 .button-container {
-  right: 1.5rem;
-  top: 6rem;
-  position: relative;
   z-index: 2;
+  top: 6rem;
+  right: 4.25rem;
+  position: absolute;
 }
 
 .sphere {
@@ -161,7 +154,6 @@
   position: absolute;
   top: 12rem;
   left: 59%;
-  z-index: -1;
 }
 
 .sphere div {

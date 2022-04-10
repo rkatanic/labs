@@ -1,10 +1,14 @@
-import "../styles/Header.module.scss";
+import MonIcon from "../assets/icons/mon.svg";
 
 const Header = (): JSX.Element => {
   return (
     <header className="header">
-      <div className="cross cross-left"></div>
-      <div className="cross cross-right"></div>
+      <div className="header-mon-left">
+        <MonIcon />
+      </div>
+      <div className="header-mon-right">
+        <MonIcon />
+      </div>
       <span>RK</span>
       <span>Labs</span>
     </header>

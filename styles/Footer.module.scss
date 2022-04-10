@@ -19,29 +19,17 @@
     }
   }
 
-  .cross {
+  &-mon-left {
+    top: -0.625rem;
+    left: -0.25rem;
     position: absolute;
-    width: 2px;
-    height: 12px;
-    background-color: var(--color-gray-500);
-    top: -0.45rem;
-    transform: rotate(-30deg);
-
-    &::before {
-      position: absolute;
-      content: "";
-      width: 2px;
-      height: 12px;
-      background-color: var(--color-gray-500);
-      transform: rotate(60deg);
-    }
-
-    &-left {
-      left: 0;
-    }
-
-    &-right {
-      right: 0;
-    }
   }
+
+  &-mon-right {
+    top: -0.625rem;
+    right: -0.25rem;
+    position: absolute;
+  }
+
+
 }

@@ -24,6 +24,7 @@ const ProjectsSlider = ({ sliderRef }: Props): JSX.Element => {
           ({ id, number, title, creationDate, description }: Project) => (
             <ProjectCard
               key={id}
+              id={id}
               number={number}
               title={title}
               date={creationDate}
