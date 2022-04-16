@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Project } from "../types/project";
+import { Project } from "../types/Project";
 import ProjectCard from "./ProjectCard";
 
 interface Props {
@@ -21,14 +21,14 @@ const ProjectsSlider = ({ sliderRef, projects }: Props): JSX.Element => {
     <div onTransitionEnd={handleNextSlide} className="projects-slider">
       <div ref={sliderRef} className="projects-slider-content">
         {slides.map(
-          ({ title, slug, excerpt, creationDate, number }: Project) => (
+          ({ title, slug, creationDate, number, activity }: Project) => (
             <ProjectCard
               key={slug}
               slug={slug}
               number={number}
               title={title}
               creationDate={creationDate}
-              excerpt={excerpt}
+              activity={activity}
             />
           )
         )}

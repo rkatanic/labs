@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+@import "./base/reset";
+
+@import "./utils/animations";
+@import "./utils/mixins";
+@import "./utils/variables";
+
+@import "./components/IconButton";
+@import "./components/Home";
+@import "./components/Header";
+@import "./components/Footer";
+@import "./components/ProjectCard";
+@import "./components/ProjectsSlider";
+@import "./components/Project";
+@import "./components/Background";
+@import "./components/ActivityChart";

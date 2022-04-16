@@ -1,14 +1,14 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import MonIcon from "../assets/icons/mon.svg";
+import Background from "./Background";
 
 const Layout = (props: any): JSX.Element => {
   return (
     <>
-      <div className="grid"></div>
+      <Background />
       <div className="main">
         <Header />
-
         <div className="content">
           <div className="line line-left">
             <div className="line-mon-top">
@@ -32,7 +32,6 @@ const Layout = (props: any): JSX.Element => {
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     </>

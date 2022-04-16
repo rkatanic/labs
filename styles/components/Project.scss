@@ -2,7 +2,7 @@
     height: 100%;
     max-width: 44rem;
     margin: auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
     flex: 1;
     font-size: 1.25rem;
     text-align: justify;
@@ -11,15 +11,12 @@
         margin-bottom: 1rem;
     }
 
-
-    h1,
-    h2,
-    h3 {
-        letter-spacing: 3px;
-        font-family: var(--font-main);
+    a {
+        text-decoration: underline;
     }
 
-    h3 {
-        letter-spacing: 2px;
+    p {
+        font-weight: 300;
+        line-height: 1.5;
     }
 }

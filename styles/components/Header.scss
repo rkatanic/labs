@@ -6,14 +6,15 @@
   position: relative;
 
   &-mon-left {
-    top: 2.675rem;
-    left: -0.25rem;
+    top: 44px;
+    left: 0;
     position: absolute;
   }
 
   &-mon-right {
-    top: 2.675rem;
-    right: -0.25rem;
+    transform: rotate(180deg);
+    top: 43px;
+    right: 0;
     position: absolute;
   }
 }

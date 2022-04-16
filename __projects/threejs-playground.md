@@ -1,9 +1,9 @@
 ---
 title: 'Three.js Playground'
-excerpt: 'WebGL experimental playground and three.js learning archive.'
 creationDate: '2022-02-04'
 modificationDate: '2022-02-04'
-number: '02'
+number: '2'
+activity: '1,0,0,0,0,0,0,0,0,0,0,0'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.

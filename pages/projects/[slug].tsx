@@ -4,14 +4,14 @@ import { getProjectBySlug, getAllProjects } from "../../lib/api";
 import { markdownToHtml } from "../../lib/markdownToHtml";
 import CloseIcon from "../../assets/icons/x.svg";
 import IconButton from "../../components/IconButton";
-import { Project } from "../../types/Project";
 import { DATE_FORMAT } from "../../util/dateTimeUtils";
+import { Project } from "../../types/Project";
 
 type Props = {
   project: Project;
 };
 
-const Post = ({ project }: Props) => {
+const Project = ({ project }: Props) => {
   const button = useRef<any>();
   const router = useRouter();
 
@@ -23,7 +23,9 @@ const Post = ({ project }: Props) => {
     const changeButtonPosition = () => {
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
-      button.current.style.marginTop = `${winScroll}px`;
+      if (button.current) {
+        button.current.style.marginTop = `${winScroll}px`;
+      }
     };
 
     window.addEventListener("scroll", changeButtonPosition);
@@ -48,7 +50,7 @@ const Post = ({ project }: Props) => {
   );
 };
 
-export default Post;
+export default Project;
 
 type Params = {
   params: {
@@ -56,13 +58,14 @@ type Params = {
   };
 };
 
-export async function getStaticProps({ params }: Params) {
+export const getStaticProps = async ({ params }: Params) => {
   const project = getProjectBySlug(params.slug, [
     "title",
     "slug",
     "creationDate",
     "modificationDate",
     "content",
+    "activity",
   ]);
   const content = await markdownToHtml(project.content || "");
 
@@ -74,7 +77,7 @@ export async function getStaticProps({ params }: Params) {
       },
     },
   };
-}
+};
 
 export async function getStaticPaths() {
   const project = getAllProjects(["slug"]);

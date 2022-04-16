@@ -2,20 +2,20 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 
-const postsDirectory = join(process.cwd(), "__projects");
+const projectsDirectory = join(process.cwd(), "__projects");
 
 export const getProjectSlugs = (): string[] => {
-  return fs.readdirSync(postsDirectory);
+  return fs.readdirSync(projectsDirectory);
 };
 
 export const getProjectBySlug = (slug: string, fields: string[] = []) => {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = join(projectsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
   type Items = {
-    [key: string]: string;
+    [key: string]: string | number[];
   };
 
   const items: Items = {};
@@ -32,6 +32,10 @@ export const getProjectBySlug = (slug: string, fields: string[] = []) => {
     if (typeof data[field] !== "undefined") {
       items[field] = data[field];
     }
+
+    if (field === "activity") {
+      items[field] = createActivityArray(data[field]);
+    }
   });
 
   return items;
@@ -41,9 +45,13 @@ export const getAllProjects = (fields: string[] = []) => {
   const slugs = getProjectSlugs();
   const projects = slugs
     .map((slug) => getProjectBySlug(slug, fields))
-    // sort posts by date in descending order
+    // sort projects by date in descending order
     .sort((project1, project2) =>
       project1.creationDate > project2.creationDate ? -1 : 1
     );
   return projects;
+};
+
+const createActivityArray = (string: string) => {
+  return string.split(",").map((value) => Number(value));
 };

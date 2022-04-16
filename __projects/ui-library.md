@@ -1,9 +1,9 @@
 ---
 title: 'UI Library'
-excerpt: 'UI library made for my personal projects and experiments.'
 creationDate: '2022-04-10'
 modificationDate: 'Apr 10, 2022'
-number: '04'
+number: '4'
+activity: '0,0,2,4,0,0,0,0,0,0,0,0'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
@@ -17,3 +17,4 @@ Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidu
 - Create color switch
 - Add search
 - Make website responsive
+- Add logo

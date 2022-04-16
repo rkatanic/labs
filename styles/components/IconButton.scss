@@ -1,0 +1,113 @@
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: 0.1s linear;
+  position: relative;
+  cursor: pointer;
+  margin-left: -0.25rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  box-shadow: 0 3px 6px var(--color-black);
+  background-color: var(--color-white);
+  font-family: var(--font);
+
+  .orbit {
+    &-small {
+      z-index: -1;
+      width: 4.75rem;
+      height: 4.75rem;
+      border-radius: 50%;
+      border: 2px solid var(--color-gray-500);
+      content: "";
+      position: absolute;
+      animation: rotation-clockwise 15s linear infinite;
+
+      &::after {
+        left: 12px;
+        top: 0px;
+        z-index: -1;
+        border: 2px solid var(--color-gray-500);
+        background-color: var(--color-gray-900);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+      }
+    }
+
+    &-medium {
+      z-index: -2;
+      width: 5.75rem;
+      height: 5.75rem;
+      border-radius: 50%;
+      border: 1px solid var(--color-gray-700);
+      content: "";
+      position: absolute;
+      animation: rotation-counterclockwise 10s linear infinite;
+
+      &::after {
+        left: 24px;
+        top: 0px;
+        z-index: -1;
+        background-color: var(--color-gray-500);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+      }
+    }
+  }
+
+  &:hover .icon-button-tooltip {
+    display: inline;
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    transition: 0.125s linear;
+  }
+
+  &-tooltip {
+    position: absolute;
+    left: 5rem;
+    padding: 0.5rem 1rem;
+    color: var(--color-white-two);
+    background-color: var(--color-gray-800);
+    border: 2px solid var(--color-gray-500);
+    border-radius: 10rem;
+    white-space: nowrap;
+    display: none;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+
+    &::before {
+      left: -16px;
+      top: 16px;
+      position: absolute;
+      content: "";
+      width: 16px;
+      height: 2px;
+      background-color: var(--color-gray-500);
+    }
+
+    &::after {
+      left: -20px;
+      top: 12.5px;
+      position: absolute;
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: 2px solid var(--color-gray-500);
+      background-color: var(--color-gray-800);
+    }
+  }
+}

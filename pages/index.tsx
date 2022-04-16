@@ -11,10 +11,11 @@ type Props = {
   projects: Project[];
 };
 
+const MAX_SCROLL_AMOUNT = 210;
+
 const Home = ({ projects }: Props): JSX.Element => {
   const button = useRef<any>();
   const sliderRef = useRef<any>();
-  console.log(projects);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -31,8 +32,12 @@ const Home = ({ projects }: Props): JSX.Element => {
     const changeButtonPosition = () => {
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
-      button.current.style.marginTop = `${winScroll > 230 ? 230 : winScroll}px`;
-      if (winScroll > 165) {
+      if (button.current) {
+        button.current.style.marginTop = `${
+          winScroll > MAX_SCROLL_AMOUNT ? MAX_SCROLL_AMOUNT : winScroll
+        }px`;
+      }
+      if (winScroll > MAX_SCROLL_AMOUNT) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -53,10 +58,9 @@ const Home = ({ projects }: Props): JSX.Element => {
         />
       </div>
       <div className="home-headline">
-        <h3 className="home-headline-title">Labs</h3>
+        <h3 className="home-headline-title">LABS</h3>
         <p className="home-headline-desc">
-          This place serves as an archive <br /> to small personal projects and
-          experiments.
+          This place serves as an archive for personal tools and experiments.
         </p>
       </div>
       <ProjectsSlider projects={projects} sliderRef={sliderRef} />
@@ -72,9 +76,9 @@ export const getStaticProps = async () => {
   const projects = getAllProjects([
     "title",
     "slug",
-    "excerpt",
     "creationDate",
     "number",
+    "activity",
   ]);
 
   return {
