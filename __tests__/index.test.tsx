@@ -4,7 +4,7 @@ import Home from "../pages";
 
 describe("Home", (): void => {
   it("should render", (): void => {
-    const { baseElement } = render(<Home />);
+    const { baseElement } = render(<Home projects={[]} />);
 
     expect(baseElement).toBeInTheDocument();
   });

@@ -1,20 +1,7 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 6rem;
-  border-bottom: 2px solid var(--color-gray-500);
-  position: relative;
-
-  &-mon-left {
-    top: 44px;
-    left: 0;
-    position: absolute;
-  }
-
-  &-mon-right {
-    transform: rotate(180deg);
-    top: 43px;
-    right: 0;
-    position: absolute;
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 6rem;
   }
 }

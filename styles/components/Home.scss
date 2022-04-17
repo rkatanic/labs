@@ -1,17 +1,3 @@
-.main {
-  max-width: 66rem;
-  padding: 3rem 2rem;
-  margin: auto;
-  position: relative;
-  height: 100%;
-}
-
-.content {
-  display: flex;
-  margin: 6rem 0;
-  position: relative;
-}
-
 .home {
   position: relative;
 
@@ -26,57 +12,9 @@
 
     &-desc {
       margin: 0rem auto;
-      font-size: 1.65rem;
+      font-size: 1.75rem;
       max-width: 34rem;
     }
-  }
-}
-
-.line {
-  position: absolute;
-  height: 100%;
-  width: 2px;
-  background-color: var(--color-gray-500);
-
-  &-mon-top {
-    transform: rotate(90deg);
-    left: -8px;
-    top: -4px;
-    position: absolute;
-  }
-
-  &-mon-bottom {
-    left: -7px;
-    bottom: -4px;
-    position: absolute;
-    transform: rotate(-90deg);
-  }
-
-  .scroll-text {
-    transform: rotate(-90deg);
-    position: absolute;
-    white-space: nowrap;
-    padding: 0 0.5rem;
-    background-color: var(--color-gray-900);
-    color: var(--color-white);
-
-    &-top {
-      left: -2.25rem;
-      top: 6rem;
-    }
-
-    &-bottom {
-      left: -2.125rem;
-      bottom: 6rem;
-    }
-  }
-
-  &-left {
-    left: 6rem;
-  }
-
-  &-right {
-    right: 6rem;
   }
 }
 

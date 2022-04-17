@@ -1,9 +1,9 @@
 .footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 6rem;
-  border-top: 2px solid var(--color-gray-500);
-  position: relative;
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 6rem;
+  }
 
   &-links {
     display: flex;
@@ -12,18 +12,5 @@
 
   &-link {
     outline: none;
-  }
-
-  &-mon-left {
-    top: -11px;
-    left: 0;
-    position: absolute;
-  }
-
-  &-mon-right {
-    transform: rotate(180deg);
-    top: -12px;
-    right: 0;
-    position: absolute;
   }
 }

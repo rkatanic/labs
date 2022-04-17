@@ -1,7 +1,7 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import MonIcon from "../assets/icons/mon.svg";
 import Background from "./Background";
+import Line from "./Line";
 
 interface Props {
   children: React.ReactNode;
@@ -14,27 +14,9 @@ const Layout = ({ children }: Props): JSX.Element => {
       <div className="main">
         <Header />
         <div className="content">
-          <div className="line line-left">
-            <div className="line-mon-top">
-              <MonIcon />
-            </div>
-            <div className="line-mon-bottom">
-              <MonIcon />
-            </div>
-            <p className="scroll-text scroll-text-top">SCROLL</p>
-            <p className="scroll-text scroll-text-bottom">TO TOP</p>
-          </div>
-
+          <Line orientatiton="vertical" />
           {children}
-
-          <div className="line line-right">
-            <div className="line-mon-top">
-              <MonIcon />
-            </div>
-            <div className="line-mon-bottom">
-              <MonIcon />
-            </div>
-          </div>
+          <Line orientatiton="vertical" />
         </div>
         <Footer />
       </div>

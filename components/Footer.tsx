@@ -1,24 +1,21 @@
-import MonIcon from "../assets/icons/mon.svg";
+import Line from "./Line";
 
 const Footer = (): JSX.Element => {
   return (
-    <header className="footer">
-      <div className="footer-mon-left">
-        <MonIcon />
+    <div className="footer">
+      <Line />
+      <div className="footer-content">
+        <span>© 2022 Radivoje Katanic</span>
+        <div className="footer-links">
+          <a className="footer-link" href="">
+            GitHub
+          </a>
+          <a className="footer-link" href="">
+            LinkedIn
+          </a>
+        </div>
       </div>
-      <div className="footer-mon-right">
-        <MonIcon />
-      </div>
-      <span>© 2022 Radivoje Katanic</span>
-      <div className="footer-links">
-        <a className="footer-link" href="">
-          GitHub
-        </a>
-        <a className="footer-link" href="">
-          LinkedIn
-        </a>
-      </div>
-    </header>
+    </div>
   );
 };
 

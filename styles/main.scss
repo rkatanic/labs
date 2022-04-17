@@ -6,13 +6,15 @@
 @import "./utils/mixins";
 @import "./utils/variables";
 
-@import "./components/IconButton";
+@import "./components/Layout";
 @import "./components/Home";
+@import "./components/Project";
 @import "./components/Header";
 @import "./components/Footer";
 @import "./components/ProjectCard";
 @import "./components/ProjectsSlider";
-@import "./components/Project";
-@import "./components/Background";
+@import "./components/IconButton";
 @import "./components/ActivityChart";
 @import "./components/DateTime";
+@import "./components/Line";
+@import "./components/Background";

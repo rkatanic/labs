@@ -1,5 +1,5 @@
 :root {
-    --color-hue: 42;
+    --color-hue: 40;
 
     --color-black: hsl(0, 0%, 0%);
     --color-white: hsl(0, 0%, 99%);
@@ -15,9 +15,9 @@
     --color-gray-200: hsl(0, 0%, 30%);
     --color-gray-100: hsl(0, 0%, 50%);
 
-    --color-primary-500: hsl(var(--color-hue), 68%, 56%);
-    --color-primary-400: hsl(var(--color-hue), 65%, 62%);
-    --color-primary-300: hsl(var(--color-hue), 65%, 72%);
+    --color-primary-500: hsl(var(--color-hue), 72%, 62%);
+    --color-primary-400: hsl(var(--color-hue), 72%, 72%);
+    --color-primary-300: hsl(var(--color-hue), 72%, 82%);
 
     --font: "Space Grotesk", sans-serif;
 }
