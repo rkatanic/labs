@@ -2,6 +2,7 @@
   overflow: hidden;
   max-width: 62rem;
   z-index: 1;
+  position: relative;
 
   &-content {
     display: flex;

@@ -11,10 +11,9 @@ type Props = {
   projects: Project[];
 };
 
-const MAX_SCROLL_AMOUNT = 210;
+const MAX_SCROLL_AMOUNT = 205;
 
 const Home = ({ projects }: Props): JSX.Element => {
-  const button = useRef<any>();
   const sliderRef = useRef<any>();
 
   const [scrolled, setScrolled] = useState(false);
@@ -29,28 +28,23 @@ const Home = ({ projects }: Props): JSX.Element => {
   };
 
   useEffect(() => {
-    const changeButtonPosition = () => {
+    const changeButtonPosition = (): void => {
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
-      if (button.current) {
-        button.current.style.marginTop = `${
-          winScroll > MAX_SCROLL_AMOUNT ? MAX_SCROLL_AMOUNT : winScroll
-        }px`;
-      }
       if (winScroll > MAX_SCROLL_AMOUNT) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
     };
-
     window.addEventListener("scroll", changeButtonPosition);
+
     return () => window.removeEventListener("scroll", changeButtonPosition);
   }, []);
 
   return (
     <div className="home">
-      <div className="button-container" ref={button}>
+      <div className="button-next-slide">
         <IconButton
           onClick={scrolled ? handleNextSlide : handleMailTo}
           icon={scrolled ? <ArrowRightIcon /> : <SendIcon />}
@@ -64,7 +58,6 @@ const Home = ({ projects }: Props): JSX.Element => {
         </p>
       </div>
       <ProjectsSlider projects={projects} sliderRef={sliderRef} />
-
       <DateTime />
     </div>
   );

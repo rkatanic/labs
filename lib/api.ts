@@ -15,7 +15,7 @@ export const getProjectBySlug = (slug: string, fields: string[] = []) => {
   const { data, content } = matter(fileContents);
 
   type Items = {
-    [key: string]: string | number[];
+    [key: string]: any;
   };
 
   const items: Items = {};

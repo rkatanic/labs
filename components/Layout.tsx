@@ -3,7 +3,11 @@ import Header from "./Header";
 import MonIcon from "../assets/icons/mon.svg";
 import Background from "./Background";
 
-const Layout = (props: any): JSX.Element => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Layout = ({ children }: Props): JSX.Element => {
   return (
     <>
       <Background />
@@ -21,7 +25,7 @@ const Layout = (props: any): JSX.Element => {
             <p className="scroll-text scroll-text-bottom">TO TOP</p>
           </div>
 
-          {props.children}
+          {children}
 
           <div className="line line-right">
             <div className="line-mon-top">

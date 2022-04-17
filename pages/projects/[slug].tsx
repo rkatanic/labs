@@ -1,40 +1,25 @@
-import { useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { getProjectBySlug, getAllProjects } from "../../lib/api";
 import { markdownToHtml } from "../../lib/markdownToHtml";
-import CloseIcon from "../../assets/icons/x.svg";
-import IconButton from "../../components/IconButton";
 import { DATE_FORMAT } from "../../util/dateTimeUtils";
 import { Project } from "../../types/Project";
+import CloseIcon from "../../assets/icons/x.svg";
+import IconButton from "../../components/IconButton";
+import { useRouter } from "next/router";
 
 type Props = {
   project: Project;
 };
 
 const Project = ({ project }: Props) => {
-  const button = useRef<any>();
   const router = useRouter();
 
   const handleGoBack = (): void => {
     router.push("/");
   };
 
-  useEffect(() => {
-    const changeButtonPosition = () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      if (button.current) {
-        button.current.style.marginTop = `${winScroll}px`;
-      }
-    };
-
-    window.addEventListener("scroll", changeButtonPosition);
-    return () => window.removeEventListener("scroll", changeButtonPosition);
-  }, []);
-
   return (
     <div className="project">
-      <div className="button-container" ref={button}>
+      <div className="button-close">
         <IconButton
           onClick={handleGoBack}
           icon={<CloseIcon />}
@@ -79,7 +64,7 @@ export const getStaticProps = async ({ params }: Params) => {
   };
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const project = getAllProjects(["slug"]);
 
   return {
@@ -92,4 +77,4 @@ export async function getStaticPaths() {
     }),
     fallback: false,
   };
-}
+};

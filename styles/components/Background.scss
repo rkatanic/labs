@@ -167,11 +167,11 @@
 
                 .jupiter {
                     bottom: 30vh;
-                    right: 4.5vh;
+                    right: 4.75vh;
                     content: "";
                     position: absolute;
-                    width: 24px;
-                    height: 24px;
+                    width: 20px;
+                    height: 20px;
                     background-color: var(--color-gray-900);
                     border: 2px solid var(--color-gray-600);
                     border-radius: 50%;
@@ -179,7 +179,7 @@
 
                     &::before {
                         top: 3vh;
-                        left: 2.5vh;
+                        left: 1vh;
                         content: "";
                         position: absolute;
                         width: 6px;
@@ -209,9 +209,9 @@
                 .saturn {
                     position: absolute;
                     top: 50vh;
-                    left: 0.75vh;
-                    width: 20px;
-                    height: 20px;
+                    left: 1vh;
+                    width: 18px;
+                    height: 18px;
                     border-radius: 50%;
                     background-color: var(--color-gray-900);
                     border: 2px solid var(--color-gray-600);
@@ -223,8 +223,8 @@
                         transform: translate(-50%, -50%);
                         content: "";
                         position: absolute;
-                        width: 24px;
-                        height: 24px;
+                        width: 22px;
+                        height: 22px;
                         border: 1px solid var(--color-gray-600);
                         border-radius: 50%;
                     }
@@ -269,11 +269,11 @@
 
                 &::before {
                     bottom: 70vh;
-                    left: 0.5vh;
+                    left: 0.75vh;
                     content: "";
                     position: absolute;
-                    width: 18px;
-                    height: 18px;
+                    width: 16px;
+                    height: 16px;
                     background-color: var(--color-gray-800);
                     border: 2px solid var(--color-gray-600);
                     border-radius: 50%;
