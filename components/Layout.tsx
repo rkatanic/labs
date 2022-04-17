@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Background from "./Background";
 import Line from "./Line";
+import ScrollProgress from "./ScrollProgress";
 
 interface Props {
   children: React.ReactNode;
@@ -14,7 +15,7 @@ const Layout = ({ children }: Props): JSX.Element => {
       <div className="main">
         <Header />
         <div className="content">
-          <Line orientatiton="vertical" />
+          <ScrollProgress />
           {children}
           <Line orientatiton="vertical" />
         </div>

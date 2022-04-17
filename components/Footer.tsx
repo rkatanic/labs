@@ -2,7 +2,7 @@ import Line from "./Line";
 
 const Footer = (): JSX.Element => {
   return (
-    <div className="footer">
+    <div className="footer" id="bottom">
       <Line />
       <div className="footer-content">
         <span>© 2022 Radivoje Katanic</span>
