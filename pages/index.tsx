@@ -1,80 +1,49 @@
-import { useEffect, useRef, useState } from "react";
-import IconButton from "../components/IconButton";
-import ProjectsSlider from "../components/ProjectsSlider";
-import ArrowRightIcon from "../assets/icons/arrow-right.svg";
-import SendIcon from "../assets/icons/send.svg";
-import DateTime from "../components/DateTime";
-import { getAllProjects } from "../lib/api";
-import { Project } from "../types/Project";
+import {getAllProjects} from "../lib/api";
+import {Project} from "../types/project";
+import {FiMenu} from 'react-icons/fi';
 
 type Props = {
-  projects: Project[];
+    projects: Project[];
 };
 
-const MAX_SCROLL_AMOUNT = 205;
-
-const Home = ({ projects }: Props): JSX.Element => {
-  const sliderRef = useRef<any>();
-
-  const [scrolled, setScrolled] = useState(false);
-
-  const handleNextSlide = (): void => {
-    sliderRef.current.style.transition = `transform 0.35s`;
-    sliderRef.current.style.transform = `translateX(-21rem)`;
-  };
-
-  const handleMailTo = (): void => {
-    window.location.href = "mailto:k.rade313@gmail.com";
-  };
-
-  useEffect(() => {
-    const changeButtonPosition = (): void => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      if (winScroll > MAX_SCROLL_AMOUNT) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+const Home = ({projects} : Props) : JSX.Element => {
+    const handleMailTo = () : void => {
+        window.location.href = "mailto:k.rade313@gmail.com";
     };
-    window.addEventListener("scroll", changeButtonPosition);
 
-    return () => window.removeEventListener("scroll", changeButtonPosition);
-  }, []);
-
-  return (
-    <div className="home">
-      <div className="button-next-slide">
-        <IconButton
-          onClick={scrolled ? handleNextSlide : handleMailTo}
-          icon={scrolled ? <ArrowRightIcon /> : <SendIcon />}
-          tooltip={scrolled ? "Next slide" : "Send e-mail"}
-        />
-      </div>
-      <div className="home-headline">
-        <h3 className="home-headline-title">LABS</h3>
-        <p className="home-headline-desc">
-          This place serves as an archive for personal tools and experiments.
-        </p>
-      </div>
-      <ProjectsSlider projects={projects} sliderRef={sliderRef} />
-      <DateTime />
-    </div>
-  );
+    return (
+        <div className="home h-screen bg-black p-8">
+            <div className="border-2 h-full border-gray-800 p-8">
+                <div className="mb-2 flex gap-4 justify-between items-center">
+                    <span className="text-gray-200 font-medium text-2xl flex items-baseline m-0 p-0 gap-2">
+                        <div className="border-[3px] rounded-full border-white w-4 h-4"></div>Garden</span>
+                    <FiMenu size="1.25rem" className="stroke-gray-50"/>
+                </div>
+                <div className="grid h-full">
+                    <div className="m-auto text-center">
+                        <h1 className="text-gray-50 text-5xl font-semibold uppercase tracking-widest mb-2">Digital garden</h1>
+                        <h3 className="text-gray-300 text-3xl font-light tracking-wide">This is space for ideas to grow,
+                            <br/>
+                            playground for personal tools & experiments.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Home;
 
 export const getStaticProps = async () => {
-  const projects = getAllProjects([
-    "title",
-    "slug",
-    "creationDate",
-    "number",
-    "activity",
-  ]);
+    const projects = getAllProjects([
+        "title",
+        "slug",
+        "creationDate",
+        "number",
+        "activity",
+    ]);
 
-  return {
-    props: { projects },
-  };
+    return {props: {
+            projects
+        }};
 };
