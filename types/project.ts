@@ -6,4 +6,5 @@ export interface Project {
   content: string;
   number: string;
   activity: number[];
+  preview?: any;
 }

@@ -1,11 +1,8 @@
 import "../styles/main.scss";
-import type {AppProps}
-from "next/app";
+import type { AppProps } from "next/app";
 
-function MyApp({Component, pageProps} : AppProps) {
-    return (
-        <Component {...pageProps}/>
-    );
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

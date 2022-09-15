@@ -28,10 +28,12 @@ const DateTime = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="date-time">
-      <h3 className="date">{date}</h3>
-      <h1 className="time">{time}</h1>
-      <h3 className="page-load">Page load time: {pageLoadTime} MS</h3>
+    <div className="text-gray-300 absolute bottom-16 left-16 flex justify-between">
+      <div className="flex gap-2">
+        {/*  <h3 className="date">{date}</h3> */}
+        <h1 className="time">{time}</h1>
+      </div>
+      {/*   <h3 className="page-load">Page load time: {pageLoadTime} MS</h3> */}
     </div>
   );
 };

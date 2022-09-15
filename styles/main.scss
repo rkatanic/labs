@@ -10,8 +10,26 @@
     }
 }
 
+html,body{
+    background-color: hsl(0,0%,8%);
+}
+
 .grid {
-    background-image: radial-gradient(hsl(0, 0%, 16%) 1px, transparent 2px);
-    background-size: 3rem 3rem;
+    background-image: radial-gradient(hsl(0, 0%, 15%) 1px, transparent 1px);
+    background-size: 2rem 2rem;
     background-position: -1.5rem;
 }
+
+.image-slider{
+    height: 100vh !important;
+}
+
+.title-wrapper{
+    position: fixed !important;
+    inset: 0; 
+}
+
+@font-face {
+    font-family: "Spectral Medium";
+    src: url("/public/Spectral-Medium.ttf");
+  }
