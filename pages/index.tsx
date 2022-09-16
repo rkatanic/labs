@@ -1,5 +1,4 @@
-import GeometryGroup from "../components/GeometryGroup";
-import ImageSlider from "../components/ImageSlider";
+import Slider from "../components/Slider";
 import { getAllProjects } from "../lib/api";
 import { Project } from "../types/project";
 
@@ -9,9 +8,8 @@ type Props = {
 
 const Home = ({ projects }: Props): JSX.Element => {
   return (
-    <div>
-      <ImageSlider />
-      {/* <GeometryGroup /> */}
+    <div className="flex items-center justify-center h-screen">
+      <Slider />
     </div>
   );
 };
