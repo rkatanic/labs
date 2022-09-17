@@ -1,5 +1,6 @@
 ---
 title: "Markdown Editor"
+description: "Simple markdown editor for personal needs."
 creationDate: "2022-03-15"
 modificationDate: "2022-03-15"
 number: "3"

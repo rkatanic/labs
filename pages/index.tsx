@@ -8,8 +8,8 @@ type Props = {
 
 const Home = ({ projects }: Props): JSX.Element => {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <Slider />
+    <div className="flex h-[calc(100vh-20rem)]">
+      <Slider projects={projects} />
     </div>
   );
 };
@@ -19,6 +19,7 @@ export default Home;
 export const getStaticProps = async () => {
   const projects = getAllProjects([
     "title",
+    "description",
     "slug",
     "creationDate",
     "number",

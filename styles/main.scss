@@ -21,9 +21,9 @@ body {
     overflow-x: hidden;
 }
 
-.grid {
-    background-image: radial-gradient(hsl(0, 0%, 15%) 1px, transparent 1px);
-    background-size: 2rem 2rem;
+.dotted-bg {
+    background-image: radial-gradient(hsl(0, 0%, 11%) 1px, transparent 1px);
+    background-size: 1rem 1rem;
     background-position: -1.5rem;
 }
 
@@ -35,10 +35,7 @@ body {
         position: relative;
         font-weight: 500;
         letter-spacing: 2px;
-        text-transform: uppercase;
-        font-size: 4rem;
-        // font-size: 14rem;
-        // text-transform: uppercase;
-        // font-family: "Maragsa";
+        font-size: 8rem;
+        font-family: "Maragsa";
     }
 }

@@ -9,7 +9,7 @@ type Props = {
   project: Project;
 };
 
-const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
 
 const firstName = {
   initial: {
@@ -45,7 +45,7 @@ const letter = {
   },
   animate: {
     y: 0,
-    transition: { duration: 2, ...transition },
+    transition: { ...transition },
   },
 };
 
@@ -56,6 +56,14 @@ const Project = ({ project }: Props) => {
     router.push("/");
   };
   const projectNames = project.title.split(" ");
+  let height = 0;
+  if (typeof document === "undefined") {
+    // during server evaluation
+  } else {
+    // during client's browser evaluation
+    console.log(document.documentElement.clientHeight);
+    height = document.documentElement.clientHeight;
+  }
 
   return (
     <motion.div
@@ -64,14 +72,14 @@ const Project = ({ project }: Props) => {
       animate="animate"
       exit="exit"
     >
-      <div className="flex flex-col items-center justify-center h-screen w-full">
-        <div>
+      <div className="flex flex-col items-center justify-center w-full">
+        <div className="w-full m-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{
               opacity: 1,
               y: 0,
-              transition: { delay: 2, ...transition },
+              transition: { delay: 1.2, ...transition },
             }}
           >
             <div className="flex gap-4 justify-between">
@@ -79,7 +87,7 @@ const Project = ({ project }: Props) => {
             </div>
           </motion.div>
           <motion.div className="model overflow-hidden">
-            <motion.span className="mr-4" variants={firstName}>
+            <motion.span className="mr-8" variants={firstName}>
               {projectNames[0].split("").map((char) => (
                 <motion.span variants={letter}>{char}</motion.span>
               ))}
@@ -94,46 +102,34 @@ const Project = ({ project }: Props) => {
         </div>
 
         <motion.div
+          className="w-full"
           initial={{
-            width: "24rem",
+            maxWidth: "64rem",
+            y: `calc(${height / 2 - 33.5 * 16}px)`,
           }}
           animate={{
-            width: "100vw",
+            maxWidth: "100%",
+            y: 0,
             transition: { delay: 0.2, ...transition },
           }}
         >
           <div className="text-white flex-1 relative">
-            <motion.div
-              initial={{
-                height: "32rem",
-              }}
-              animate={{
-                height: "32rem",
-                transition: { delay: 0.2, ...transition },
-              }}
-            >
-              <div className="shader h-full border-2 border-gray-800"></div>
-            </motion.div>
+            <div className="h-[24rem] shader border-2 border-gray-800"></div>
           </div>
         </motion.div>
         <motion.div
           initial={{
-            // y: "100px",
             opacity: 0,
           }}
           animate={{
-            // y: "0",
             opacity: 1,
-            transition: { delay: 1.6, ...transition },
+            transition: { delay: 1.2, ...transition },
           }}
         >
-          <div className="flex gap-16 mt-8">
-            <div className="text-2xl font-medium tracking-wide text-gray-50">
-              Synopsis
-            </div>
+          <div className="flex gap-16 mt-8 max-w-5xl">
             <div
               dangerouslySetInnerHTML={{ __html: project.content }}
-              className="max-w-5xl text-gray-200 text-xl"
+              className=" text-gray-200 text-xl"
             ></div>
           </div>
         </motion.div>

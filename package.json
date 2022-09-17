@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-progressive-image": "^0.6.0",
+    "react-scramble-text": "^1.0.1",
     "remark": "^14.0.2",
     "remark-gfm": "^3.0.1",
     "remark-html": "^15.0.1",
