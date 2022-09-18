@@ -8,7 +8,7 @@ type Props = {
 
 const Home = ({ projects }: Props): JSX.Element => {
   return (
-    <div className="flex h-[calc(100vh-20rem)]">
+    <div className="flex h-[calc(100vh-16rem)]">
       <Slider projects={projects} />
     </div>
   );

@@ -55,13 +55,11 @@ const Project = ({ project }: Props) => {
   const handleGoBack = (): void => {
     router.push("/");
   };
+
   const projectNames = project.title.split(" ");
+
   let height = 0;
-  if (typeof document === "undefined") {
-    // during server evaluation
-  } else {
-    // during client's browser evaluation
-    console.log(document.documentElement.clientHeight);
+  if (typeof document !== "undefined") {
     height = document.documentElement.clientHeight;
   }
 
@@ -109,6 +107,7 @@ const Project = ({ project }: Props) => {
           }}
           animate={{
             maxWidth: "100%",
+            width: "100vw",
             y: 0,
             transition: { delay: 0.2, ...transition },
           }}
