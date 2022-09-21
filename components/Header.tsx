@@ -1,10 +1,13 @@
 const Header = (): JSX.Element => {
   return (
-    <div className="h-16 border-b-2 border-gray-900 max-w-5xl px-16 m-auto mb-16 flex gap-4 items-center justify-between relative before:absolute before:w-[2px] before:h-3 before:bg-gray-700 before:left-0 before:-bottom-[6px] after:right-0 after:-bottom-[6px] after:absolute after:w-[2px] after:h-3 after:bg-gray-700">
-      <div>radivoje.katanic</div>
-      <div>
-        <span className="text-gray-600 mr-1 font-medium">.</span>contact
-        <span className="text-gray-600 mr-1 font-medium">()</span>
+    <div className="h-24 border-b-2 border-gray-800 max-w-5xl m-auto relative before:absolute before:w-[2px] before:h-3 before:bg-gray-700 before:left-0 before:-bottom-[6px] after:right-0 after:-bottom-[6px] after:absolute after:w-[2px] after:h-3 after:bg-gray-700">
+      <div className="px-16 text-sm font-light top-[5.5rem] uppercase z-10 left-0 absolute flex gap-4 justify-between w-full">
+        <div className="px-4 bg-black tracking-widest text-gray-200">
+          rkatanic
+        </div>
+        <div className="px-4 bg-black tracking-widest text-gray-200">
+          Contact
+        </div>
       </div>
     </div>
   );

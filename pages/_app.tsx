@@ -9,12 +9,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
   return (
     <AnimatePresence initial={false} exitBeforeEnter>
-      <div className="lines"></div>
-      <motion.div key={asPath} className="dotted-bg">
+      <motion.div key={asPath}>
         <Header />
         <Component {...pageProps} />
       </motion.div>
       <Footer />
+      <div className="dotted-bg"></div>
+      <div className="lines"></div>
+      <div className="grid"></div>
     </AnimatePresence>
   );
 }

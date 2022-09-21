@@ -71,7 +71,7 @@ const Project = ({ project }: Props) => {
       exit="exit"
     >
       <div className="flex flex-col items-center justify-center w-full">
-        <div className="w-full m-auto max-w-5xl">
+        <div className="w-full m-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{
@@ -92,7 +92,7 @@ const Project = ({ project }: Props) => {
             </motion.span>
 
             <motion.span className="mr-4" variants={lastName}>
-              {projectNames[1].split("").map((char) => (
+              {projectNames[1]?.split("").map((char) => (
                 <motion.span variants={letter}>{char}</motion.span>
               ))}
             </motion.span>
@@ -125,10 +125,10 @@ const Project = ({ project }: Props) => {
             transition: { delay: 1.2, ...transition },
           }}
         >
-          <div className="flex gap-16 mt-8 max-w-5xl">
+          <div className="flex gap-16 mt-8 max-w-4xl">
             <div
               dangerouslySetInnerHTML={{ __html: project.content }}
-              className=" text-gray-200 text-xl"
+              className="font-light text-gray-100 text-xl"
             ></div>
           </div>
         </motion.div>

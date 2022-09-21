@@ -4,6 +4,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: Whyte Inktrap;
+    src: url("../public/WhyteInktrap-Light.woff2");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whyte Inktrap;
+    src: url("../public/WhyteInktrap-Regular.woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whyte Inktrap;
+    src: url("../public/WhyteInktrap-Medium.woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whyte Inktrap;
+    src: url("../public/WhyteInktrap-Bold.woff2");
+    font-weight: 600;
+}
+
 :root {
     --color-bg: hsl(0, 0%, 8%);
 }
@@ -13,13 +37,15 @@ body {
     background-color: hsl(0, 0%, 8%);
     color: white;
     overflow-x: hidden;
-    font-family: Inconsolata;
+    font-family: Whyte Inktrap;
 }
 
 .dotted-bg {
-    background-image: radial-gradient(hsl(0, 0%, 11%) 1px, transparent 1px);
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(hsl(0, 0%, 12%) 1px, transparent 1px);
     background-size: 1rem 1rem;
-    background-position: -1.5rem;
+    background-position: 0;
 }
 
 .model {
@@ -28,19 +54,35 @@ body {
     span {
         display: inline-block;
         position: relative;
+        // text-transform: uppercase;
         font-weight: 500;
-        letter-spacing: 2px;
-        font-size: 8rem;
-        font-family: "Maragsa";
+        // letter-spacing: 2px;
+        font-size: 4rem;
+        // font-family: "Maragsa";
     }
 }
 
 // .lines {
-    //     z-index: 0;
-    //     position: fixed;
-    //     inset: 0;
-    //     width: 100vw;
-    //     height: 100vh;
-    //     background-image: linear-gradient(90deg, hsl(0, 0%, 11%) 1px, transparent 1px);
-    //     background-size: 10vw;
-    // }
+//     z-index: 0;
+//     position: fixed;
+//     inset: 0;
+//     width: 100vw;
+//     height: 100vh;
+//     background-image: linear-gradient(90deg, hsl(0, 0%, 11%) 1px, transparent 1px);
+//     background-size: 10vw;
+// }
+
+// .grid {
+//     z-index: 0;
+//     position: fixed;
+//     inset: 0;
+//     background-image: linear-gradient(hsl(0, 0%, 12%) 1px, transparent 1px),
+//         linear-gradient(90deg, hsl(0, 0%, 12%) 1px, transparent 1px);
+//     background-size: 16rem 16rem;
+//     background-position: 0 6rem;
+//     margin: auto;
+// }
+
+.v-lines {
+    margin-left: calc((64rem - 100vw) / 2);
+}

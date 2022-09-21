@@ -47,14 +47,14 @@ const Slider = ({ projects }: Props): JSX.Element => {
         >
           <TextScrambler
             speed={10}
-            className="font-medium text-5xl tracking-wide mb-4"
+            className="text-5xl mb-4"
             phrases={[
               projects[currentSlide].title,
               projects[currentSlide].title,
             ]}
           />
         </motion.div>
-        <Link href="projects/markdown-editor">
+        <Link href={`projects/${projects[currentSlide].slug}`}>
           <div className="shader w-full h-[24rem] border-2 border-gray-800 bg-black"></div>
         </Link>
         <motion.div
@@ -64,7 +64,7 @@ const Slider = ({ projects }: Props): JSX.Element => {
         >
           <div className="absolute w-full flex items-baseline justify-between overflow-hidden  mt-4">
             <TextScrambler
-              className=" text-2xl text-gray-200 max-w-4xl"
+              className="font-light text-2xl text-gray-100 max-w-4xl"
               speed={2}
               phrases={[
                 projects[currentSlide].description,
