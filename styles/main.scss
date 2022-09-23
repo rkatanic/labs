@@ -34,9 +34,8 @@
 
 html,
 body {
-    background-color: hsl(0, 0%, 8%);
+    background-color: var(--color-bg);
     color: white;
-    overflow-x: hidden;
     font-family: Whyte Inktrap;
 }
 
@@ -48,28 +47,11 @@ body {
     background-position: 0;
 }
 
-.model {
-    overflow: hidden;
-
-    span {
-        display: inline-block;
-        position: relative;
-        // text-transform: uppercase;
-        font-weight: 500;
-        // letter-spacing: 2px;
-        font-size: 4rem;
-        // font-family: "Maragsa";
-    }
-}
-
 // .lines {
-//     z-index: 0;
 //     position: fixed;
 //     inset: 0;
-//     width: 100vw;
-//     height: 100vh;
-//     background-image: linear-gradient(90deg, hsl(0, 0%, 11%) 1px, transparent 1px);
-//     background-size: 10vw;
+//     background-image: linear-gradient(90deg, hsl(0, 0%, 14%) 1px, transparent 1px);
+//     background-size: 12.5vw;
 // }
 
 // .grid {
@@ -83,6 +65,10 @@ body {
 //     margin: auto;
 // }
 
-.v-lines {
-    margin-left: calc((64rem - 100vw) / 2);
+.grid-left {
+    left: calc((100vw - 768px)/2 - 768px);
+}
+
+.grid-right {
+    right: calc((100vw - 768px)/2 - 768px);
 }

@@ -8,4 +8,5 @@ export interface Project {
   number: string;
   activity: number[];
   preview?: any;
+  todos?: string[];
 }
