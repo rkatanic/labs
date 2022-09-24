@@ -1,5 +1,5 @@
 ---
-title: "OCR Converter"
+title: "Text Extractor"
 description: "Extracts texts from images. Supports 50+ languages."
 creationDate: "2021-11-06"
 modificationDate: "2021-11-06"

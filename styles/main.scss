@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -28,6 +28,25 @@
     font-weight: 600;
 }
 
+@font-face {
+    font-family: Spectral;
+    src: url("../public/Spectral-Bold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Spectral;
+    src: url("../public/Spectral-SemiBold.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Spectral;
+    src: url("../public/Spectral-Medium.ttf");
+    font-weight: 400;
+}
+
+
 :root {
     --color-bg: hsl(0, 0%, 8%);
 }
@@ -36,7 +55,7 @@ html,
 body {
     background-color: var(--color-bg);
     color: white;
-    font-family: Whyte Inktrap;
+    font-family: Overpass;
 }
 
 .dotted-bg {
@@ -47,12 +66,12 @@ body {
     background-position: 0;
 }
 
-// .lines {
-//     position: fixed;
-//     inset: 0;
-//     background-image: linear-gradient(90deg, hsl(0, 0%, 14%) 1px, transparent 1px);
-//     background-size: 12.5vw;
-// }
+.lines {
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(90deg, hsl(0, 0%, 14%) 1px, transparent 1px);
+    background-size: 20vw;
+}
 
 // .grid {
 //     z-index: 0;
@@ -65,10 +84,25 @@ body {
 //     margin: auto;
 // }
 
-.grid-left {
-    left: calc((100vw - 768px)/2 - 768px);
+// .grid-left {
+//     left: calc((100vw - 768px)/2 - 768px);
+// }
+
+// .grid-right {
+//     right: calc((100vw - 768px)/2 - 768px);
+// }
+
+.sphere {
+    inset: 0;
+    position: fixed !important;
+    z-index: -1 !important;
 }
 
-.grid-right {
-    right: calc((100vw - 768px)/2 - 768px);
+.title {
+    font-family: Spectral;
+}
+
+.initials {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
 }

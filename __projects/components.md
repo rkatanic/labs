@@ -1,5 +1,5 @@
 ---
-title: "Components"
+title: "Tailwind Components"
 description: "Tailwind component library."
 creationDate: "2022-04-10"
 modificationDate: "Apr 10, 2022"

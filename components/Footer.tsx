@@ -8,8 +8,8 @@ const Footer = () => {
         <DateTime />
       </div>
       <div className="flex gap-4 tracking-widest text-gray-200">
-        <button className="border-2 rounded-full w-8 h-8 flex items-center justify-center">
-          <IoIosContrast size="1rem" />
+        <button>
+          <IoIosContrast size="1.25rem" />
         </button>
       </div>
     </div>
