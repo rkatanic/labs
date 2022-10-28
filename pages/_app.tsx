@@ -13,10 +13,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Header />
         <Component {...pageProps} />
       </motion.div>
-      <Footer />
-      <div className="dotted-bg"></div>
-      <div className="lines"></div>
-      <div className="grid"></div>
+      {/* <div className="w-screen h-32 z-10 bg-gradient-to-b from-black fixed inset-0"></div> */}
+      {/* <div className="radial-bg w-screen h-screen fixed inset-0"></div> */}
+      {/* <div className="lines"></div> */}
+      {/* <Footer /> */}
+      {/* <div className="dotted-bg"></div> */}
+      {/* <div className="lines"></div> */}
+      {/* <div className="grid"></div> */}
     </AnimatePresence>
   );
 }

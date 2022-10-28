@@ -11,8 +11,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-spring/three": "^9.5.5",
     "@react-three/drei": "^9.30.3",
     "@react-three/fiber": "^8.7.4",
+    "@react-three/postprocessing": "^2.7.0",
     "@svgr/webpack": "^6.2.1",
     "framer-motion": "^7.3.5",
     "gray-matter": "^4.0.3",
@@ -41,6 +43,7 @@
     "babel-plugin-macros": "^3.1.0",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.1",
+    "file-loader": "^6.2.0",
     "glslify": "^7.1.1",
     "jest": "^27.5.1",
     "next-transpile-modules": "^9.0.0",
