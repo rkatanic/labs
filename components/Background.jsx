@@ -30,14 +30,19 @@ import {
   Octahedron,
   Sphere,
   MeshDistortMaterial,
+  Box,
+  Plane,
+  Capsule,
+  TorusKnot,
 } from "@react-three/drei";
 import { SphereGeometry } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useGLTF } from "@react-three/drei";
+
 const Triangle = ({ position, r, rotation, args }) => {
   const ref = useRef();
 
-  useFrame((state) => {
+  useFrame(() => {
     ref.current.rotation.z += r * 0.01;
   });
 
@@ -46,19 +51,30 @@ const Triangle = ({ position, r, rotation, args }) => {
       <Circle rotation={rotation} position={position} args={args}>
         <meshStandardMaterial color="hsl(0,0%,16%)" />
       </Circle>
-      {/* <ambientLight intensity={0.5} /> */}
-      {/* <directionalLight position={[-2, 6, 4]} intensity={1.1} /> */}
     </mesh>
   );
 };
 
 const Planet = () => {
   return (
-    <Sphere position={[0, 0, 0]} args={[2.5, 7, 7]}>
-      <meshStandardMaterial color="hsl(0,0%,6%)" />
-
-      <directionalLight position={[-1, 0, 2]} intensity={0.2} />
-    </Sphere>
+    <group>
+      <TorusKnot
+        position={[0, 0, -1.25]}
+        args={[2, 1, 64, 14, 9, 18]}
+        rotation={[0, 0, 0]}
+      >
+        <MeshDistortMaterial
+          color={"hsl(0,0%,8%)"}
+          attach="material"
+          distort={0.2}
+          speed={5}
+          roughness={2}
+          metalness={2.7}
+        />
+        {/* <meshStandardMaterial color="hsl(0,0%,16%)" /> */}
+        {/* <directionalLight position={[-1, 0, 10]} intensity={0.2} /> */}
+      </TorusKnot>
+    </group>
   );
 };
 
@@ -206,15 +222,6 @@ const Triangles = () => {
   ];
 
   const ref = useRef();
-  const r = 0.5;
-  const vec = new THREE.Vector3();
-  const { mouse } = useThree();
-  useFrame((state) => {
-    // ref.current.rotation.x += 0.1;
-    // ref.current.rotation.y += 0.001;
-    // ref.current.rotation.x += mouse.x * 0.01;
-    // ref.current.rotation.y += mouse.x * 0.001;
-  });
 
   return (
     <group ref={ref}>
@@ -227,7 +234,7 @@ const Triangles = () => {
           args={triangle.args}
         />
       ))}
-      <ambientLight intensity={0.5} />
+      {/* <ambientLight intensity={0.5} /> */}
       <directionalLight position={[-2, 6, 4]} intensity={1.75} />
     </group>
   );
@@ -244,20 +251,50 @@ function Rig() {
   );
 }
 
-const Sun = forwardRef(function Sun(props, forwardRef) {
-  const { mouse } = useThree();
-  useFrame(({ clock }) => {
-    forwardRef.current.position.x = mouse.x;
-    forwardRef.current.position.y = mouse.y;
+const Modal = () => {
+  const { scene, materials, nodes } = useGLTF("./cat-remodeled.glb");
+  console.log(materials);
+  const ref = useRef();
+  const { camera, mouse } = useThree();
+  const vec = new THREE.Vector3();
+
+  useFrame(() => {
+    ref.current.rotation.y = THREE.MathUtils.lerp(
+      ref.current.position.x * 0.25,
+      mouse.y * 0.0001,
+      0.1
+    );
+    ref.current.position.x = THREE.MathUtils.lerp(
+      mouse.x * 2,
+      ref.current.position.x,
+      0.125
+    );
+    ref.current.rotation.x = THREE.MathUtils.lerp(
+      ref.current.rotation.x,
+      -mouse.y * 0.3,
+      0.125
+    );
   });
 
+  useLayoutEffect(() => {
+    Object.assign(materials.Default, {
+      roughness: 2,
+      metalness: 1.45,
+      emissive: new THREE.Color("hsl(0,0%,12%)"),
+    });
+  }, [scene, materials]);
+
   return (
-    <mesh ref={forwardRef} position={[0, 0, -15]}>
-      <sphereGeometry args={[0.25, 36, 36]} />
-      <meshBasicMaterial color={"hsl(200,80%,50%)"} />
-    </mesh>
+    <mesh
+      ref={ref}
+      material={nodes.mesh_0.material}
+      geometry={nodes.mesh_0.geometry}
+      position={[0, -1.625, -1.5]}
+      rotation={[0, 0, 0]}
+      scale={0.0325}
+    ></mesh>
   );
-});
+};
 
 const Background = () => {
   return (
@@ -291,11 +328,10 @@ const Background = () => {
           <Noise opacity={0.025} />
           <Vignette eskil={false} offset={0.015} darkness={1.35} />
         </EffectComposer>
-        {/* <GeometryTriangles/> */}
-        {/* <Geometries/> */}
+        {/* <Planet /> */}
         {/* <Rig /> */}
         <Triangles />
-        {/* <Planet /> */}
+        <Modal />
       </Suspense>
     </Canvas>
   );

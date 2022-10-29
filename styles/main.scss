@@ -5,6 +5,15 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: Hakio;
+  src: url("../public/d.woff2");
+}
+
+.text-hakio {
+  font-family: Hakio;
+}
+
+@font-face {
   font-family: Whyte Inktrap;
   src: url("../public/Radikal-thin.otf");
   font-weight: 300;

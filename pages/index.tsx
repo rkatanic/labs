@@ -52,6 +52,9 @@ const Home = ({ projects }: Props): JSX.Element => {
           </form>
         </div>
       </div> */}
+      {/* <div className="text-hakio fixed z-20 text-[18vh] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 tracking-wide">
+        Katana
+      </div> */}
       <Background />
     </div>
   );
