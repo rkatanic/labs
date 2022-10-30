@@ -38,6 +38,7 @@ import {
 import { SphereGeometry } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useGLTF } from "@react-three/drei";
+import useMousePosition from "../hooks/useMousePosition";
 
 const Triangle = ({ position, r, rotation, args }) => {
   const ref = useRef();
@@ -234,8 +235,7 @@ const Triangles = () => {
           args={triangle.args}
         />
       ))}
-      {/* <ambientLight intensity={0.5} /> */}
-      <directionalLight position={[-2, 6, 4]} intensity={1.75} />
+      <directionalLight position={[-2, 7, 5]} intensity={1.5} />
     </group>
   );
 };
@@ -251,28 +251,32 @@ function Rig() {
   );
 }
 
-const Modal = () => {
+const Model = () => {
   const { scene, materials, nodes } = useGLTF("./cat-remodeled.glb");
-  console.log(materials);
   const ref = useRef();
-  const { camera, mouse } = useThree();
-  const vec = new THREE.Vector3();
+  const { mouse } = useThree();
+  const mousePosition = useMousePosition();
+
+  console.log(mousePosition);
+  const mouseX = mousePosition.x / window.innerWidth - 0.5;
+  const mouseY = mousePosition.y / window.innerHeight - 0.5;
+  console.log("MouseX", mouseX - 0.5);
 
   useFrame(() => {
-    ref.current.rotation.y = THREE.MathUtils.lerp(
-      ref.current.position.x * 0.25,
-      mouse.y * 0.0001,
-      0.1
-    );
-    ref.current.position.x = THREE.MathUtils.lerp(
-      mouse.x * 2,
-      ref.current.position.x,
-      0.125
-    );
     ref.current.rotation.x = THREE.MathUtils.lerp(
       ref.current.rotation.x,
-      -mouse.y * 0.3,
+      mouseY * 0.5,
       0.125
+    );
+    ref.current.rotation.y = THREE.MathUtils.lerp(
+      ref.current.position.x * 0.25,
+      mouseY,
+      0.00025
+    );
+    ref.current.position.x = THREE.MathUtils.lerp(
+      mouseX * 3,
+      ref.current.position.x,
+      0.0125
     );
   });
 
@@ -291,24 +295,14 @@ const Modal = () => {
       geometry={nodes.mesh_0.geometry}
       position={[0, -1.625, -1.5]}
       rotation={[0, 0, 0]}
-      scale={0.0325}
+      scale={0.0375}
     ></mesh>
   );
 };
 
 const Background = () => {
   return (
-    <Canvas
-      className="background"
-      camera={{ position: [0, 0, 10] }}
-      gl={{
-        powerPreference: "high-performance",
-        alpha: false,
-        antialias: false,
-        stencil: false,
-        depth: false,
-      }}
-    >
+    <Canvas className="background" camera={{ position: [0, 0, 10] }}>
       <color attach="background" args={["hsl(0,0%,9%)"]} />
       <fog color="hsl(0,0%,20%)" attach="fog" near={8} far={30} />
       <Suspense fallback={<Html center>Loading.</Html>}>
@@ -331,7 +325,7 @@ const Background = () => {
         {/* <Planet /> */}
         {/* <Rig /> */}
         <Triangles />
-        <Modal />
+        <Model />
       </Suspense>
     </Canvas>
   );

@@ -3,6 +3,7 @@ import Slider from "../components/Slider";
 import { getAllProjects } from "../lib/api";
 import { Project } from "../types/project";
 import Background from "../components/Background";
+import { useState } from "react";
 
 type Props = {
   projects: Project[];
@@ -11,50 +12,26 @@ type Props = {
 const Home = ({ projects }: Props): JSX.Element => {
   return (
     <div className="h-screen w-screen flex">
-      {/* <div className="z-[20] m-auto text-[5vh] w-full max-w-[50%]">
-        <div className="flex-1 mb-8">
-          <div>That's it for now. More stuff is coming soon.</div>
-          <div className="text-neutral-600">rkatanic@outlook.com</div>
+      <div className="fixed inset-0 h-24 bg-gradient-to-b from-[black] z-30 w-screen"></div>
+      <div className="fixed bottom-0 h-24 bg-gradient-to-t from-[black] z-30 w-screen"></div>
+      <div className="flex z-20 max-w-7xl w-full m-auto ">
+        <div className="flex-1 ml-4 relative tracking-wide before:absolute before:w-[1px] before:-left-4 before:top-0.5 before:h-4 before:bg-white">
+          Projects
         </div>
-        <div className="flex">
-          <div className="flex-1"></div>
-          <form className="flex-1 text-[2vh] flex flex-col gap-8">
-            <input
-              type="text"
-              required
-              placeholder="Name"
-              className="border-b border-b-2 border-neutral-700 py-3 placeholder-neutral-600 bg-transparent focus:outline-0 focus:border-neutral-300 w-full"
-            />
-            <input
-              type="text"
-              required
-              placeholder="E-mail"
-              className="border-b border-b-2 border-neutral-700 py-3 placeholder-neutral-600 bg-transparent focus:outline-0 focus:border-neutral-300 w-full"
-            />
-            <input
-              type="text"
-              required
-              placeholder="Subject"
-              className="border-b border-b-2 border-neutral-700 py-3 placeholder-neutral-600 bg-transparent focus:outline-0 focus:border-neutral-300 w-full"
-            />
-            <textarea
-              required
-              rows={5}
-              placeholder="Message"
-              className="bg-transparent border-b-2 border-neutral-700 placeholder-neutral-600 focus:outline-0 focus:border-neutral-300 w-full resize-none"
-            />
-            <button
-              type="submit"
-              className="border-b-2 font-medium border-white p-2 max-w-fit"
-            >
-              Send
-            </button>
-          </form>
+        <div className="flex-1 flex flex-col gap-12 mt-24">
+          {projects.map((project, i) => (
+            <div key={i} className="">
+              <div className="-ml-9 text-neutral-600 text-sm">0{i + 1} /</div>
+              <div className="text-6xl font-medium mb-4 hover:underline cursor-pointer">
+                {project.title}
+              </div>
+              <div className="text-2xl text-neutral-500">
+                {project.description}
+              </div>
+            </div>
+          ))}
         </div>
-      </div> */}
-      {/* <div className="text-hakio fixed z-20 text-[18vh] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 tracking-wide">
-        Katana
-      </div> */}
+      </div>
       <Background />
     </div>
   );

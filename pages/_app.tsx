@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Background from "../components/Background";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
@@ -15,9 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       </motion.div>
       {/* <div className="w-screen h-32 z-10 bg-gradient-to-b from-black fixed inset-0"></div> */}
       {/* <div className="radial-bg w-screen h-screen fixed inset-0"></div> */}
-      {/* <div className="lines pointer-events-none"></div> */}
+      <div className="lines pointer-events-none"></div>
+      {/* <div className="fixed max-w-7xl w-full m-auto z-10 inset-0 border-l border-r border-neutral-800/70 pointer-events-none">
+        <div className="w-[1px] h-full border-r border-neutral-800/60 m-auto"></div>
+      </div> */}
       {/* <Footer /> */}
-      {/* <div className="dotted-bg"></div> */}
+      {/* <div className="dotted-bg pointer-events-none"></div> */}
       {/* <div className="lines"></div> */}
       {/* <div className="grid"></div> */}
     </AnimatePresence>
