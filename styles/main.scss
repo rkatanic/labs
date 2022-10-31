@@ -4,9 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./ScrollIndicator.scss";
+
 @font-face {
   font-family: Hakio;
-  src: url("../public/d.woff2");
+  src: url("../public/Rockville Solid.otf");
 }
 
 .text-hakio {
@@ -57,22 +59,7 @@ body {
   background-position: 0;
 }
 
-.model {
-  overflow: hidden;
-
-  span {
-    display: inline-block;
-    position: relative;
-    // text-transform: uppercase;
-    font-weight: 500;
-    // letter-spacing: 2px;
-    font-size: 4rem;
-    // font-family: "Maragsa";
-  }
-}
-
 .lines {
-  // z-index: 20;
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -91,19 +78,9 @@ body {
   inset: 0;
   background-image: linear-gradient(hsl(0, 0%, 12%) 1px, transparent 1px),
     linear-gradient(90deg, hsl(0, 0%, 12%) 1px, transparent 1px);
-  background-size: 16rem 16rem;
-  background-position: 0 6rem;
+  background-size: 25vw 25vh;
+  background-position: 0 0;
   margin: auto;
-}
-
-.v-lines {
-  margin-left: calc((64rem - 100vw) / 2);
-}
-
-.radial-bg {
-  background: rgb(253, 26, 26);
-  background: radial-gradient(rgb(38, 38, 38) 0%, rgb(7, 7, 7) 65%);
-  //   background: radial-gradient(circle, rgb(30, 30, 30) 0%, rgb(8, 8, 8) 70%);
 }
 
 .background {

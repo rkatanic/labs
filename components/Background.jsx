@@ -5,6 +5,8 @@ import React, {
   useMemo,
   forwardRef,
   useLayoutEffect,
+  useCallback,
+  useEffect,
 } from "react";
 import {
   Canvas,
@@ -39,6 +41,9 @@ import { SphereGeometry } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useGLTF } from "@react-three/drei";
 import useMousePosition from "../hooks/useMousePosition";
+import { a, useTransition, config } from "@react-spring/three";
+import Header from "./Header";
+import Head from "next/head";
 
 const Triangle = ({ position, r, rotation, args }) => {
   const ref = useRef();
@@ -53,29 +58,6 @@ const Triangle = ({ position, r, rotation, args }) => {
         <meshStandardMaterial color="hsl(0,0%,16%)" />
       </Circle>
     </mesh>
-  );
-};
-
-const Planet = () => {
-  return (
-    <group>
-      <TorusKnot
-        position={[0, 0, -1.25]}
-        args={[2, 1, 64, 14, 9, 18]}
-        rotation={[0, 0, 0]}
-      >
-        <MeshDistortMaterial
-          color={"hsl(0,0%,8%)"}
-          attach="material"
-          distort={0.2}
-          speed={5}
-          roughness={2}
-          metalness={2.7}
-        />
-        {/* <meshStandardMaterial color="hsl(0,0%,16%)" /> */}
-        {/* <directionalLight position={[-1, 0, 10]} intensity={0.2} /> */}
-      </TorusKnot>
-    </group>
   );
 };
 
@@ -240,41 +222,44 @@ const Triangles = () => {
   );
 };
 
-function Rig() {
-  const { camera, mouse } = useThree();
-  const vec = new THREE.Vector3();
-  return useFrame(() =>
-    camera.position.lerp(
-      vec.set(mouse.x * 2, mouse.y * 1, camera.position.z),
-      0.05
-    )
-  );
-}
-
 const Model = () => {
   const { scene, materials, nodes } = useGLTF("./cat-remodeled.glb");
   const ref = useRef();
+  // const mousePosition = useMousePosition();
   const { mouse } = useThree();
-  const mousePosition = useMousePosition();
+  // const mouseX = mousePosition.x / window.innerWidth - 0.5;
+  // const mouseY = mousePosition.y / window.innerHeight - 0.5;
 
-  console.log(mousePosition);
-  const mouseX = mousePosition.x / window.innerWidth - 0.5;
-  const mouseY = mousePosition.y / window.innerHeight - 0.5;
-  console.log("MouseX", mouseX - 0.5);
+  const transition = useTransition(
+    {},
+    {
+      from: {
+        position: [0, -6, -1.5],
+        rotation: [1.5, 0, 0.4],
+        scale: [0.0175, 0.0175, 0.0175],
+      },
+      enter: {
+        position: [0, -1.625, -1.5],
+        rotation: [0, 0, 0],
+        scale: [0.0375, 0.0375, 0.0375],
+      },
+      config: { mass: 1.25, tension: 180, friction: 12 },
+    }
+  );
 
   useFrame(() => {
     ref.current.rotation.x = THREE.MathUtils.lerp(
       ref.current.rotation.x,
-      mouseY * 0.5,
+      -mouse.y * 0.25,
       0.125
     );
     ref.current.rotation.y = THREE.MathUtils.lerp(
       ref.current.position.x * 0.25,
-      mouseY,
+      mouse.y,
       0.00025
     );
     ref.current.position.x = THREE.MathUtils.lerp(
-      mouseX * 3,
+      mouse.x * 2,
       ref.current.position.x,
       0.0125
     );
@@ -288,16 +273,16 @@ const Model = () => {
     });
   }, [scene, materials]);
 
-  return (
-    <mesh
+  return transition((props, { position }) => (
+    <a.mesh
       ref={ref}
       material={nodes.mesh_0.material}
       geometry={nodes.mesh_0.geometry}
       position={[0, -1.625, -1.5]}
-      rotation={[0, 0, 0]}
       scale={0.0375}
-    ></mesh>
-  );
+      {...props}
+    ></a.mesh>
+  ));
 };
 
 const Background = () => {
@@ -305,7 +290,13 @@ const Background = () => {
     <Canvas className="background" camera={{ position: [0, 0, 10] }}>
       <color attach="background" args={["hsl(0,0%,9%)"]} />
       <fog color="hsl(0,0%,20%)" attach="fog" near={8} far={30} />
-      <Suspense fallback={<Html center>Loading.</Html>}>
+      <Suspense
+        fallback={
+          <Html center fullscreen>
+            loading
+          </Html>
+        }
+      >
         <EffectComposer multisampling={0} disableNormalPass={true}>
           <DepthOfField
             focusDistance={0}
@@ -322,8 +313,6 @@ const Background = () => {
           <Noise opacity={0.025} />
           <Vignette eskil={false} offset={0.015} darkness={1.35} />
         </EffectComposer>
-        {/* <Planet /> */}
-        {/* <Rig /> */}
         <Triangles />
         <Model />
       </Suspense>
