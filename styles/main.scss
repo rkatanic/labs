@@ -16,25 +16,25 @@
 }
 
 @font-face {
-  font-family: Whyte Inktrap;
+  font-family: Radikal;
   src: url("../public/Radikal-thin.otf");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: Whyte Inktrap;
+  font-family: Radikal;
   src: url("../public/Radikal-light.otf");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: Whyte Inktrap;
+  font-family: Radikal;
   src: url("../public/Radikal-medium.otf");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: Whyte Inktrap;
+  font-family: Radikal;
   src: url("../public/Radikal-bold.otf");
   font-weight: 600;
 }
@@ -48,42 +48,5 @@ body {
   background-color: var(--color-bg);
   color: white;
   overflow-x: hidden;
-  font-family: Whyte Inktrap;
-}
-
-.dotted-bg {
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(hsl(0, 0%, 12%) 1px, transparent 1px);
-  background-size: 1rem 1rem;
-  background-position: 0;
-}
-
-.lines {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(
-    90deg,
-    hsl(0, 0%, 12%) 1px,
-    transparent 1px
-  );
-  background-size: 25vw;
-}
-
-.grid {
-  z-index: 0;
-  position: fixed;
-  inset: 0;
-  background-image: linear-gradient(hsl(0, 0%, 11%) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(0, 0%, 11%) 1px, transparent 1px);
-  background-size: 25vw 25vh;
-  background-position: 0 0;
-  margin: auto;
-}
-
-.background {
-  top: 0 !important;
-  position: fixed !important;
+  font-family: Radikal;
 }

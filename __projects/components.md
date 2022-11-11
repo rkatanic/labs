@@ -1,6 +1,6 @@
 ---
 title: "Components"
-description: "Tailwind component library."
+description: "Collection of components built with Tailwind CSS."
 creationDate: "2022-04-10"
 modificationDate: "Apr 10, 2022"
 number: "4"
