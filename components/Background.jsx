@@ -241,7 +241,7 @@ const Model = () => {
       enter: {
         position: [0, -1.625, -1.5],
         rotation: [0, 0, 0],
-        scale: [0.0375, 0.0375, 0.0375],
+        scale: [0.04, 0.04, 0.04],
       },
       config: { mass: 1.25, tension: 180, friction: 12 },
     }
