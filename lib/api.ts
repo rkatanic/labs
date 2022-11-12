@@ -32,10 +32,6 @@ export const getProjectBySlug = (slug: string, fields: string[] = []) => {
     if (typeof data[field] !== "undefined") {
       items[field] = data[field];
     }
-
-    if (field === "activity") {
-      items[field] = createActivityArray(data[field]);
-    }
   });
 
   return items;
@@ -50,8 +46,4 @@ export const getAllProjects = (fields: string[] = []) => {
       project1.creationDate > project2.creationDate ? -1 : 1
     );
   return projects;
-};
-
-const createActivityArray = (string: string) => {
-  return string.split(",").map((value) => Number(value));
 };

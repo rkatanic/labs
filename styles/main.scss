@@ -1,19 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "./ScrollIndicator.scss";
-
-@font-face {
-  font-family: Hakio;
-  src: url("../public/Rockville Solid.otf");
-}
-
-.text-hakio {
-  font-family: Hakio;
-}
 
 @font-face {
   font-family: Radikal;
@@ -39,14 +26,7 @@
   font-weight: 600;
 }
 
-:root {
-  --color-bg: hsl(0, 0%, 7%);
-}
-
 html,
 body {
-  background-color: var(--color-bg);
-  color: white;
-  overflow-x: hidden;
   font-family: Radikal;
 }

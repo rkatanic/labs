@@ -3,9 +3,5 @@ export interface Project {
   description: string;
   slug: string;
   creationDate: string;
-  modificationDate: string;
-  content: string;
-  number: string;
-  activity: number[];
-  preview?: any;
+  url: string;
 }
