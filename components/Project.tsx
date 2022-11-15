@@ -17,7 +17,7 @@ const Project = ({ project }: Props): JSX.Element => (
         <FiZap className="stroke-teal-500" size="1.25rem" />
       </div>
       <div className="gap-1 text-sm items-center text-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex">
-        Open link
+        Visit
         <FiArrowUpRight className="stroke-teal-500" size="1rem" />
       </div>
     </div>

@@ -7,12 +7,12 @@ type Props = {
 };
 
 const Labs = ({ projects }: Props): JSX.Element => (
-  <div className="m-auto mt-24 mb-12 max-w-5xl">
+  <div className="m-auto my-32 max-w-5xl">
     <div className="m-auto text-center max-w-2xl">
       <h1 className="text-5xl font-bold mb-4 text-zinc-800 dark:text-zinc-100">
         Collection of small personal tools & experiments.
       </h1>
-      <p className="text-zinc-600 dark:text-zinc-400 text-xl font-light">
+      <p className="text-zinc-600 dark:text-zinc-400 text-xl font-light leading-8">
         In a free time I play around with different tools in order to strengthen
         my development skills. These apps are results of that experimentation.
       </p>

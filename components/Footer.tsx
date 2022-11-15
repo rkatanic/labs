@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="flex gap-6">
         <a href="https://github.com/rkatanic" target="_blank" rel="noreferrer">
           <FaGithub
-            className="fill-zinc-400 dark:fill-zinc-500 hover:fill-teal-600 dark:hover:fill-zinc-300 transition-colors"
+            className="fill-zinc-400 dark:fill-zinc-500 hover:fill-black dark:hover:fill-zinc-300 transition-colors"
             size="1.125rem"
           />
         </a>
@@ -19,7 +19,7 @@ const Footer = () => {
           rel="noreferrer"
         >
           <FaLinkedin
-            className="fill-zinc-400 dark:fill-zinc-500 hover:fill-teal-600 dark:hover:fill-zinc-300 transition-colors"
+            className="fill-zinc-400 dark:fill-zinc-500 hover:fill-black dark:hover:fill-zinc-300 transition-colors"
             size="1.125rem"
           />
         </a>

@@ -1,6 +1,6 @@
 ---
 title: "Components"
-description: "Collection of components built with Tailwind CSS."
-creationDate: "2022-04-10"
+description: "Collection of UI components based on Tailwind CSS."
+creationDate: "2022-02-04"
 url: "https://github.com/rkatanic"
 ---
