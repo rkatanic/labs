@@ -23,7 +23,10 @@ const ThemeSwitch = (): JSX.Element => {
   };
 
   return (
-    <label htmlFor="theme-switch">
+    <label
+      htmlFor="theme-switch"
+      className="border w-9 h-9 flex items-center justify-center rounded-full dark:border-gray-700 cursor-pointer group dark:hover:bg-white hover:bg-black shadow-sm"
+    >
       <input
         id="theme-switch"
         className="sr-only"
@@ -33,12 +36,12 @@ const ThemeSwitch = (): JSX.Element => {
       />
       {isDarkMode ? (
         <FiSun
-          className="stroke-zinc-400 dark:stroke-zinc-200 cursor-pointer dark:hover:stroke-teal-400 transition-colors duration-200"
+          className="stroke-gray-400 dark:stroke-gray-200 dark:group-hover:stroke-black group-hover:stroke-white"
           size="1rem"
         />
       ) : (
         <FiMoon
-          className="stroke-zinc-400 dark:stroke-zinc-200 cursor-pointer hover:stroke-teal-500 transition-colors duration-200"
+          className="stroke-gray-400 dark:stroke-gray-200 dark:group-hover:stroke-black group-hover:stroke-white"
           size="1rem"
         />
       )}

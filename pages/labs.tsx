@@ -2,23 +2,44 @@ import { getAllProjects } from "../lib/api";
 import { Project as ProjectType } from "../types/project";
 import Project from "../components/Project";
 
-type Props = {
-  projects: ProjectType[];
-};
+// type Props = {
+//   projects: ProjectType[];
+// };
 
-const Labs = ({ projects }: Props): JSX.Element => (
-  <div className="m-auto my-32 max-w-5xl">
-    <div className="m-auto text-center max-w-2xl">
-      <h1 className="text-5xl font-bold mb-4 text-zinc-800 dark:text-zinc-100">
+const PROJECTS = [
+  {
+    name: "Color Scale",
+    description: "Tool for generating color shades palette. Based on HSL.",
+    creationDate: "2022-10-10",
+    link: "https://github.com/rkatanic",
+  },
+  {
+    name: "Markdown Editor",
+    description: "Simple markdown notes editor for personal needs.",
+    creationDate: "2022-03-15",
+    link: "https://github.com/rkatanic",
+  },
+  {
+    name: "Image To Text Converter",
+    description: "Extracts texts from images. Supports 50+ languages.",
+    creationDate: "2021-11-06",
+    link: "https://github.com/rkatanic",
+  },
+];
+
+const Labs = (): JSX.Element => (
+  <div className="m-auto max-w-5xl flex-1">
+    <div className="m-auto max-w-2xl">
+      <h1 className="text-4xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
         Collection of small personal tools & experiments.
       </h1>
-      <p className="text-zinc-600 dark:text-zinc-400 text-xl font-light leading-8">
+      <p className="text-gray-600 dark:text-gray-400 text-lg">
         In a free time I play around with different tools in order to strengthen
         my development skills. These apps are results of that experimentation.
       </p>
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 mt-16">
-      {projects.map((project, i) => (
+    <div className="mt-8 flex flex-col gap-4">
+      {PROJECTS.map((project, i) => (
         <Project key={i} project={project} />
       ))}
     </div>
@@ -27,18 +48,18 @@ const Labs = ({ projects }: Props): JSX.Element => (
 
 export default Labs;
 
-export const getStaticProps = async () => {
-  const projects = getAllProjects([
-    "title",
-    "description",
-    "slug",
-    "creationDate",
-    "url",
-  ]);
+// export const getStaticProps = async () => {
+//   const projects = getAllProjects([
+//     "title",
+//     "description",
+//     "slug",
+//     "creationDate",
+//     "url",
+//   ]);
 
-  return {
-    props: {
-      projects,
-    },
-  };
-};
+//   return {
+//     props: {
+//       projects,
+//     },
+//   };
+// };
