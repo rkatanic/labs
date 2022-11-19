@@ -1,26 +1,24 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => (
-  <div className="m-auto w-full max-w-2xl flex items-center justify-between py-10">
-    <div className="text-gray-400 dark:text-gray-500 text-sm">
-      © 2022 Radivoje Katanic.
-    </div>
-    <div className="flex gap-6">
-      <a href="https://github.com/rkatanic" target="_blank" rel="noreferrer">
-        <FaGithub
-          className="fill-gray-400 dark:fill-gray-500 hover:fill-black dark:hover:fill-gray-300 transition-colors"
-          size="1rem"
-        />
-      </a>
+  <div className="m-auto w-full max-w-2xl flex items-end justify-between py-10 border-t border-gray-100 dark:border-gray-800 mt-16 text-sm text-gray-300 dark:text-gray-600">
+    <div className="whitespace-nowrap flex-1">© 2022 Radivoje Katanic.</div>
+    <div className="flex gap-4">
       <a
-        href="https://www.linkedin.com/in/radivoje-katanic"
+        className="hover:text-gray-900 dark:hover:text-gray-200 hover:underline"
         target="_blank"
         rel="noreferrer"
+        href="https://github.com/rkatanic"
       >
-        <FaLinkedin
-          className="fill-gray-400 dark:fill-gray-500 hover:fill-black dark:hover:fill-gray-300 transition-colors"
-          size="1rem"
-        />
+        GitHub
+      </a>
+      <a
+        className="hover:text-gray-900 dark:hover:text-gray-200 hover:underline"
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.linkedin.com/in/radivoje-katanic"
+      >
+        LinkedIn
       </a>
     </div>
   </div>

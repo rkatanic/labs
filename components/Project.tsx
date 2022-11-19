@@ -10,21 +10,32 @@ const Project = ({ project }: Props): JSX.Element => (
   <a
     href={project.link}
     target="blank"
-    className="border dark:border-gray-800 w-full flex flex-col gap-4 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/30 cursor-pointer transition-colors duration-200 group"
+    className="border dark:border-gray-800 border-gray-100 w-full flex flex-col gap-4 p-6 rounded-xl hover:bg-gray-50/50 dark:hover:bg-gray-800/30 cursor-pointer group"
   >
-    <div className="flex justify-between items-start">
-      <div className="flex items-center justify-center w-12 h-12 border rounded-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/50 mb-2 shadow-md shadow-gray-100 dark:shadow-gray-900/20">
-        <TbTerminal2 className="stroke-teal-500" size="1.25rem" />
-      </div>
-      <div className="gap-1 text-sm items-center text-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex">
-        Visit
-        <FiArrowUpRight className="stroke-teal-500" size="1rem" />
+    <div className="flex justify-between">
+      <h3 className="flex gap-3 items-baseline font-medium dark:text-gray-200 text-xl font-medium">
+        {project.name}
+        {project.badgeLabel && (
+          <div className="whitespace-nowrap text-xs rounded-full bg-blue-50/50 dark:bg-blue-800/20 border border-blue-300 text-blue-600 dark:text-blue-300 max-w-min px-1.5">
+            {project.badgeLabel}
+          </div>
+        )}
+      </h3>
+      <div className="flex gap-3 items-center text-gray-300 dark:text-gray-600 text-sm">
+        {DATE_FORMAT.format(new Date(project.creationDate))}
       </div>
     </div>
-    <h3 className="font-medium dark:text-gray-200">{project.name}</h3>
-    <p className="text-gray-600 dark:text-gray-400">{project.description}</p>
-    <div className="flex gap-3 items-center text-gray-400 dark:text-gray-500 text-sm">
-      {DATE_FORMAT.format(new Date(project.creationDate))}
+    <p className="text-gray-500 dark:text-gray-300 mb-2">
+      {project.description}
+    </p>
+
+    <hr className="border-gray-100 dark:border-gray-800" />
+    <div className="gap-1 text-sm items-center text-gray-300 dark:text-gray-600 group-hover:text-blue-400 dark:group-hover:text-blue-300 flex">
+      Go to link
+      <FiArrowUpRight
+        className="stroke-gray-300 dark:stroke-gray-600 group-hover:stroke-blue-400 dark:group-hover:stroke-blue-300"
+        size="1rem"
+      />
     </div>
   </a>
 );

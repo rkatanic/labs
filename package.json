@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.9.1",
     "@react-spring/three": "^9.5.5",
     "@react-three/drei": "^9.30.3",
     "@react-three/fiber": "^8.7.4",

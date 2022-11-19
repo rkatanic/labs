@@ -3,4 +3,5 @@ export interface Project {
   description: string;
   creationDate: string;
   link: string;
+  badgeLabel?: string;
 }
